@@ -1,0 +1,1247 @@
+{
+  "@context": "https://schema.org",
+  "@type": "LodgingBusiness",
+  "@id": "https://hotels.cloudbeds.com/reservation/Z2jMb3",
+  "name": "Business Suites SG",
+  "telephone": "+52 5536668535",
+  "email": "hermannsgg@gmail.com",
+  "checkinTime": "13:30:00",
+  "checkoutTime": "12:00:00",
+  "url": "https://hotels.cloudbeds.com/es/reservation/Z2jMb3",
+  "logo": "https://h-img3.cloudbeds.com/uploads/320247/dsc_0093_gallery~~699fe104de406.jpg",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Río Nazas 138, Cuauhtémoc, Ciudad de México, CDMX PH",
+    "addressLocality": "CUAUHTEMOC",
+    "addressRegion": "Distrito Federal",
+    "postalCode": "06500",
+    "addressCountry": "MX"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 19.43080711,
+    "longitude": -99.1701355
+  },
+  "description": [
+    {
+      "@value": "Business Suites SG es un pequeño servicio de hospedaje para viajeros ejecutivos y turistas que desean conocer la Ciudad de México desde una ubicación excepcional a un precio accesible. Ofrecemos 3 tipos de suite: pequeña, mediana y grande. Todas están equipadas con cama queen size, sala, cocineta, clóset y baño con regadera. Algunas ofrecen además, balcón (S1 - Negra, S2 - Morada, S3 - Beige, S5 - Azul y S6 - Roja), mesa comedor para 2 personas (S1 - Negra, S3 - Beige, S4 - Naranja, S6 - Roja), ó cocina con refrigerador alto (S1 - Negra y S4 - Naranja).  Contamos con uno de los horario de check-in más accesibles (1:30 pm - 1:00 am del siguiente día) y nuestro check-out es antes de las 12:00 hrs. No ofrecemos \"early check-in\" ni \"late-check-out\", ni tampoco operamos 24 horas. En caso de reservar un mínimo de 5 noches consecutivas en la misma suite, usted gozará de servicio de lavandería gratuita de su ropa personal. Nuestro estacionamiento es muy limitado y está sujeto a disponibilidad, ya que es un servicio GRATUITO. En caso de no poder ofrecerle el lugar de estacionamiento, existen 2 estacionamiento públicos cercanos. No contamos con aire acondicionado, pero podemos ofrecerle un ventilador portátil y/o calentador de ambiente. Para estancias más largas, ofrecemos descuentos especiales en estancias semanales y mensuales. Emitimos factura con IVA desglosado únicamente debido a nuestro régimen de servicio de hospedaje. Aceptamos pagos con tarjeta de crédito y débito (Visa ó MasterCard) ó efectivo en pesos mexicanos. No se aceptan mascotas ni niños menores a 8 años (esto debido a nuestra política de servicio ejecutivo). Existen horas de silencio a partir de las 10:00 pm y hasta las 10:00 am. No se permiten fiestas ni eventos. Sólo se permite fumar en balcones.  ",
+      "@language": "es"
+    }
+  ],
+  "amenityFeature": [
+    {
+      "@type": "LocationFeatureSpecification",
+      "value": true,
+      "name": [
+        {
+          "@value": "Baggage storage",
+          "@language": "en"
+        }
+      ]
+    },
+    {
+      "@type": "LocationFeatureSpecification",
+      "value": true,
+      "name": [
+        {
+          "@value": "Buzzer / wireless intercom",
+          "@language": "en"
+        }
+      ]
+    },
+    {
+      "@type": "LocationFeatureSpecification",
+      "value": true,
+      "name": [
+        {
+          "@value": "Concierge",
+          "@language": "en"
+        }
+      ]
+    },
+    {
+      "@type": "LocationFeatureSpecification",
+      "value": true,
+      "name": [
+        {
+          "@value": "Doorman",
+          "@language": "en"
+        }
+      ]
+    },
+    {
+      "@type": "LocationFeatureSpecification",
+      "value": true,
+      "name": [
+        {
+          "@value": "Fire extinguishers",
+          "@language": "en"
+        }
+      ]
+    },
+    {
+      "@type": "LocationFeatureSpecification",
+      "value": true,
+      "name": [
+        {
+          "@value": "Internet",
+          "@language": "en"
+        }
+      ]
+    },
+    {
+      "@type": "LocationFeatureSpecification",
+      "value": true,
+      "name": [
+        {
+          "@value": "Invoices",
+          "@language": "en"
+        }
+      ]
+    },
+    {
+      "@type": "LocationFeatureSpecification",
+      "value": true,
+      "name": [
+        {
+          "@value": "No children allowed",
+          "@language": "en"
+        }
+      ]
+    },
+    {
+      "@type": "LocationFeatureSpecification",
+      "value": true,
+      "name": [
+        {
+          "@value": "Safety deposit box",
+          "@language": "en"
+        }
+      ]
+    }
+  ],
+  "containsPlace": [
+    {
+      "@type": "HotelRoom",
+      "@id": "https://hotels.cloudbeds.com/reservation/Z2jMb3?rid=672970",
+      "name": [
+        {
+          "@value": "S1 Negra (grande)",
+          "@language": "es"
+        }
+      ],
+      "description": [
+        {
+          "@value": "Nuestra suite Negra es la mejor opción para estancias medianas y largas, ya que mide 55 m2 y ofrece una cocina completa con refrigerador alto, espacio extra de almacenamiento (cajoneras) y una mesa comedor para 2 huéspedes donde podrá trabajar de forma cómoda. Está equipada con cama queen size ideal para 2 personas. Ofrece un baño espacioso con regadera, balcón (se permite fumar en balcones), sala, comedor, cocina, barra desayunadora con 2 bancos, y clóset con caja de seguridad. Contamos con wifi de alta velocidad, caja de seguridad para objetos de valor y entretenimiento en TV con 80 canales y conectividad a plataformas de streaming (se requiere cuenta propia para gozar de las apps). En caso de reservar más de 5 noches consecutivas, recibirá un servicio de lavandería gratuita de su ropa personal durante su estancia por semana. Ofrecemos limpieza diaria de la habitación y vigilancia nocturna. Estacionamiento sujeto a disponibilidad, no contamos con aire acondicionado (se provee ventilador portátil y calentador portátil). Excelente opción para una estancia en el corazón de la CDMX a un precio accesible.",
+          "@language": "es"
+        }
+      ],
+      "image": [
+        "https://h-img3.cloudbeds.com/uploads/320247/recamara_balcon_negra~~699fc766795bc.jpg",
+        "https://h-img2.cloudbeds.com/uploads/320247/cocina_negra~~699fc79357c64.jpg",
+        "https://h-img1.cloudbeds.com/uploads/320247/cocina_negra_esquina~~699fc7b29d56c.jpg",
+        "https://h-img3.cloudbeds.com/uploads/320247/dsc_0179~~699fc7d4e6321.jpg",
+        "https://h-img3.cloudbeds.com/uploads/320247/dsc_0132~~699fc83bb541f.jpg",
+        "https://h-img1.cloudbeds.com/uploads/320247/dsc_0156~~699fc95ddbc5d.jpg",
+        "https://h-img3.cloudbeds.com/uploads/320247/dsc_0164~~699fc968d9aa4.jpg",
+        "https://h-img1.cloudbeds.com/uploads/320247/dsc_0190~~699fc9901df3d.jpg",
+        "https://h-img1.cloudbeds.com/uploads/320247/dsc_0232~~699fc9a24c7ba.jpg",
+        "https://h-img1.cloudbeds.com/uploads/320247/dsc_0099~~699fc9cb8bc91.jpg",
+        "https://h-img3.cloudbeds.com/uploads/320247/dsc_0119~~699fc9d062b31.jpg"
+      ],
+      "accommodationCategory": "private",
+      "amenityFeature": [
+        {
+          "@type": "LocationFeatureSpecification",
+          "value": true,
+          "name": [
+            {
+              "@value": "110-120 volt circuits",
+              "@language": "en"
+            }
+          ]
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "value": true,
+          "name": [
+            {
+              "@value": "Cable television",
+              "@language": "en"
+            }
+          ]
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "value": true,
+          "name": [
+            {
+              "@value": "Coffee maker",
+              "@language": "en"
+            }
+          ]
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "value": true,
+          "name": [
+            {
+              "@value": "Hairdryer",
+              "@language": "en"
+            }
+          ]
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "value": true,
+          "name": [
+            {
+              "@value": "Microwave",
+              "@language": "en"
+            }
+          ]
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "value": true,
+          "name": [
+            {
+              "@value": "WIFI (complimentary)",
+              "@language": "en"
+            }
+          ]
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "value": true,
+          "name": [
+            {
+              "@value": "cocina",
+              "@language": "en"
+            }
+          ]
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "value": true,
+          "name": [
+            {
+              "@value": "mesa comedor",
+              "@language": "en"
+            }
+          ]
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "value": true,
+          "name": [
+            {
+              "@value": "sala",
+              "@language": "en"
+            }
+          ]
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "value": true,
+          "name": [
+            {
+              "@value": "balcón",
+              "@language": "en"
+            }
+          ]
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "value": true,
+          "name": [
+            {
+              "@value": "baño con regadera",
+              "@language": "en"
+            }
+          ]
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "value": true,
+          "name": [
+            {
+              "@value": "plancha para ropa",
+              "@language": "en"
+            }
+          ]
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "value": true,
+          "name": [
+            {
+              "@value": "secador de pelo",
+              "@language": "en"
+            }
+          ]
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "value": true,
+          "name": [
+            {
+              "@value": "burro de planchar",
+              "@language": "en"
+            }
+          ]
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "value": true,
+          "name": [
+            {
+              "@value": "agua caliente 24 horas",
+              "@language": "en"
+            }
+          ]
+        }
+      ],
+      "occupancy": {
+        "@type": "QuantitativeValue",
+        "value": 2,
+        "minValue": 1,
+        "maxValue": 2,
+        "additionalProperty": [
+          {
+            "@type": "PropertyValue",
+            "name": "MaxAdults",
+            "value": 2
+          },
+          {
+            "@type": "PropertyValue",
+            "name": "MaxChildren",
+            "value": 1
+          }
+        ]
+      }
+    },
+    {
+      "@type": "HotelRoom",
+      "@id": "https://hotels.cloudbeds.com/reservation/Z2jMb3?rid=672971",
+      "name": [
+        {
+          "@value": "S2 Morada (pequeña)",
+          "@language": "es"
+        }
+      ],
+      "description": [
+        {
+          "@value": "Nuestra suite Morada es la recomendada para estancias cortas, ya que mide 45 m2 y ofrece una cocina completa con frigobar. Está equipada con cama queen size ideal para 2 personas. Ofrece un baño espacioso con regadera, balcón (se permite fumar en balcones), sala, cocina, y clóset con caja de seguridad. Contamos con wifi de alta velocidad, caja de seguridad para objetos de valor y entretenimiento en TV con 80 canales y conectividad a plataformas de streaming (se requiere cuenta propia para gozar de las apps). En caso de reservar más de 5 noches consecutivas, recibirá un servicio de lavandería gratuita de su ropa personal durante su estancia por semana. Ofrecemos limpieza diaria de la habitación y vigilancia nocturna. Estacionamiento sujeto a disponibilidad, no contamos con aire acondicionado (se provee ventilador portátil y calentador portátil). Excelente opción para una estancia en el corazón de la CDMX a un precio accesible.",
+          "@language": "es"
+        }
+      ],
+      "image": [
+        "https://h-img3.cloudbeds.com/uploads/320247/foto_portada_s2_morada~~699fcb9e03d82.jpg",
+        "https://h-img1.cloudbeds.com/uploads/320247/recmara_con_closet_s2_morada~~699fcbc17f1fb.jpg",
+        "https://h-img3.cloudbeds.com/uploads/320247/recmara_s2_morada~~699fcbcceaafa.jpg",
+        "https://h-img3.cloudbeds.com/uploads/320247/regadera_s2_morada~~699fcbda4398b.jpg",
+        "https://h-img1.cloudbeds.com/uploads/320247/dsc_0196~~699fcbef8c7c6.jpg",
+        "https://h-img1.cloudbeds.com/uploads/320247/cocina_morada~~699fcbfe6a7cd.jpg",
+        "https://h-img2.cloudbeds.com/uploads/320247/dsc_0205~~699fcc0e91295.jpg",
+        "https://h-img2.cloudbeds.com/uploads/320247/sala_morada~~699fcc212a12a.jpg",
+        "https://h-img2.cloudbeds.com/uploads/320247/balcon_interior~~699fcc38109b8.jpg",
+        "https://h-img3.cloudbeds.com/uploads/320247/fuente_patio~~699fcc3ca2212.jpg",
+        "https://h-img2.cloudbeds.com/uploads/320247/dsc_0099~~699fcc63b4770.jpg",
+        "https://h-img3.cloudbeds.com/uploads/320247/dsc_0119~~699fcc5d14639.jpg"
+      ],
+      "accommodationCategory": "private",
+      "amenityFeature": [
+        {
+          "@type": "LocationFeatureSpecification",
+          "value": true,
+          "name": [
+            {
+              "@value": "110-120 volt circuits",
+              "@language": "en"
+            }
+          ]
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "value": true,
+          "name": [
+            {
+              "@value": "Cable television",
+              "@language": "en"
+            }
+          ]
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "value": true,
+          "name": [
+            {
+              "@value": "Coffee maker",
+              "@language": "en"
+            }
+          ]
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "value": true,
+          "name": [
+            {
+              "@value": "Hairdryer",
+              "@language": "en"
+            }
+          ]
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "value": true,
+          "name": [
+            {
+              "@value": "Microwave",
+              "@language": "en"
+            }
+          ]
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "value": true,
+          "name": [
+            {
+              "@value": "WIFI (complimentary)",
+              "@language": "en"
+            }
+          ]
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "value": true,
+          "name": [
+            {
+              "@value": "cocina",
+              "@language": "en"
+            }
+          ]
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "value": true,
+          "name": [
+            {
+              "@value": "sala",
+              "@language": "en"
+            }
+          ]
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "value": true,
+          "name": [
+            {
+              "@value": "balcón",
+              "@language": "en"
+            }
+          ]
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "value": true,
+          "name": [
+            {
+              "@value": "baño con regadera",
+              "@language": "en"
+            }
+          ]
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "value": true,
+          "name": [
+            {
+              "@value": "plancha para ropa",
+              "@language": "en"
+            }
+          ]
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "value": true,
+          "name": [
+            {
+              "@value": "burro de planchar",
+              "@language": "en"
+            }
+          ]
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "value": true,
+          "name": [
+            {
+              "@value": "agua caliente 24 horas",
+              "@language": "en"
+            }
+          ]
+        }
+      ],
+      "occupancy": {
+        "@type": "QuantitativeValue",
+        "value": 2,
+        "minValue": 1,
+        "maxValue": 2,
+        "additionalProperty": [
+          {
+            "@type": "PropertyValue",
+            "name": "MaxAdults",
+            "value": 2
+          },
+          {
+            "@type": "PropertyValue",
+            "name": "MaxChildren",
+            "value": 1
+          }
+        ]
+      }
+    },
+    {
+      "@type": "HotelRoom",
+      "@id": "https://hotels.cloudbeds.com/reservation/Z2jMb3?rid=672972",
+      "name": [
+        {
+          "@value": "S3 Beige (mediana)",
+          "@language": "es"
+        }
+      ],
+      "description": [
+        {
+          "@value": "Nuestra suite Beige es una de las favoritas por los huéspedes, ya que cuenta con vista a calle y cumple con las necesidades para estancias medianas y largas. Ofrece una cocina completa con frigobar, y una mesa comedor para 2 huéspedes donde podrá trabajar de forma cómoda. Está equipada con cama queen size ideal para 2 personas. Tiene un baño espacioso con regadera, balcón (se permite fumar en balcones), sala, comedor, cocina, y clóset con caja de seguridad. Contamos con wifi de alta velocidad y entretenimiento en TV con 80 canales y conectividad a plataformas de streaming (se requiere cuenta propia para gozar de las apps). En caso de reservar más de 5 noches consecutivas, recibirá un servicio de lavandería gratuita de su ropa personal durante su estancia por semana. Ofrecemos limpieza diaria de la habitación y vigilancia nocturna. Estacionamiento sujeto a disponibilidad, no contamos con aire acondicionado (se provee ventilador portátil y calentador portátil). Excelente opción para una estancia en el corazón de la CDMX a un precio accesible.",
+          "@language": "es"
+        }
+      ],
+      "image": [
+        "https://h-img1.cloudbeds.com/uploads/320247/comedor_sala_y_cocina_s3_beige~~699fcdd1dcce0.jpg",
+        "https://h-img2.cloudbeds.com/uploads/320247/cocina_s3_beige~~699fce9fb74dd.jpg",
+        "https://h-img2.cloudbeds.com/uploads/320247/foto_desde_entrada_s3_beige~~699fcea965bf4.jpg",
+        "https://h-img3.cloudbeds.com/uploads/320247/pasillo_s3_beige~~699fceb65e0b6.jpg",
+        "https://h-img1.cloudbeds.com/uploads/320247/recmara_grande_s3_beige~~699fcec808cbb.jpg",
+        "https://h-img1.cloudbeds.com/uploads/320247/bao_s3_beige~~699fcecf638d6.jpg",
+        "https://h-img1.cloudbeds.com/uploads/320247/bao_cafe~~699fcee9c4b8d.jpg",
+        "https://h-img3.cloudbeds.com/uploads/320247/bay_window_caf~~699fcef65ab85.jpg",
+        "https://h-img1.cloudbeds.com/uploads/320247/dsc_0077~~699fcf0c32c45.jpg",
+        "https://h-img3.cloudbeds.com/uploads/320247/dsc_0090~~699fcf126bdb6.jpg",
+        "https://h-img2.cloudbeds.com/uploads/320247/fuente_patio~~699fcf284871c.jpg",
+        "https://h-img2.cloudbeds.com/uploads/320247/dsc_0119~~699fcf2d5f63b.jpg"
+      ],
+      "accommodationCategory": "private",
+      "amenityFeature": [
+        {
+          "@type": "LocationFeatureSpecification",
+          "value": true,
+          "name": [
+            {
+              "@value": "110-120 volt circuits",
+              "@language": "en"
+            }
+          ]
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "value": true,
+          "name": [
+            {
+              "@value": "Cable television",
+              "@language": "en"
+            }
+          ]
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "value": true,
+          "name": [
+            {
+              "@value": "Coffee maker",
+              "@language": "en"
+            }
+          ]
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "value": true,
+          "name": [
+            {
+              "@value": "Hairdryer",
+              "@language": "en"
+            }
+          ]
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "value": true,
+          "name": [
+            {
+              "@value": "Microwave",
+              "@language": "en"
+            }
+          ]
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "value": true,
+          "name": [
+            {
+              "@value": "WIFI (complimentary)",
+              "@language": "en"
+            }
+          ]
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "value": true,
+          "name": [
+            {
+              "@value": "cocina",
+              "@language": "en"
+            }
+          ]
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "value": true,
+          "name": [
+            {
+              "@value": "mesa comedor",
+              "@language": "en"
+            }
+          ]
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "value": true,
+          "name": [
+            {
+              "@value": "sala",
+              "@language": "en"
+            }
+          ]
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "value": true,
+          "name": [
+            {
+              "@value": "balcón",
+              "@language": "en"
+            }
+          ]
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "value": true,
+          "name": [
+            {
+              "@value": "baño con regadera",
+              "@language": "en"
+            }
+          ]
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "value": true,
+          "name": [
+            {
+              "@value": "plancha para ropa",
+              "@language": "en"
+            }
+          ]
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "value": true,
+          "name": [
+            {
+              "@value": "burro de planchar",
+              "@language": "en"
+            }
+          ]
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "value": true,
+          "name": [
+            {
+              "@value": "agua caliente 24 horas",
+              "@language": "en"
+            }
+          ]
+        }
+      ],
+      "occupancy": {
+        "@type": "QuantitativeValue",
+        "value": 2,
+        "minValue": 1,
+        "maxValue": 2,
+        "additionalProperty": [
+          {
+            "@type": "PropertyValue",
+            "name": "MaxAdults",
+            "value": 2
+          },
+          {
+            "@type": "PropertyValue",
+            "name": "MaxChildren",
+            "value": 1
+          }
+        ]
+      }
+    },
+    {
+      "@type": "HotelRoom",
+      "@id": "https://hotels.cloudbeds.com/reservation/Z2jMb3?rid=672974",
+      "name": [
+        {
+          "@value": "S4 Naranja (grande)",
+          "@language": "es"
+        }
+      ],
+      "description": [
+        {
+          "@value": "Nuestra suite Naranja es una gran opción para estancias medianas y largas, ya que mide 60 m2 y ofrece una cocina completa con refrigerador alto, espacio extra de almacenamiento (cajoneras) y una mesa comedor para 4 comensales, además de un escritorio de trabajo. Está equipada con cama queen size ideal para 2 personas. Ofrece un baño con regadera, sala, comedor, cocina, y clóset con caja de seguridad. Contamos con wifi de alta velocidad, entretenimiento en TV con 80 canales y conectividad a plataformas de streaming (se requiere cuenta propia para gozar de las apps). En caso de reservar más de 5 noches consecutivas, recibirá un servicio de lavandería gratuita de su ropa personal durante su estancia por semana. Ofrecemos limpieza diaria de la habitación y vigilancia nocturna. Estacionamiento sujeto a disponibilidad, no contamos con aire acondicionado (se provee ventilador portátil y calentador portátil). Excelente opción para una estancia en el corazón de la CDMX a un precio accesible.",
+          "@language": "es"
+        }
+      ],
+      "image": [
+        "https://h-img3.cloudbeds.com/uploads/320247/sala_naranja~~699fd0c34fd98.jpg",
+        "https://h-img3.cloudbeds.com/uploads/320247/dsc_0247~~699fd06dae408.jpg",
+        "https://h-img2.cloudbeds.com/uploads/320247/dsc_0252~~699fd071a51a3.jpg",
+        "https://h-img3.cloudbeds.com/uploads/320247/dsc_0257~~699fd075a509a.jpg",
+        "https://h-img2.cloudbeds.com/uploads/320247/dsc_0258~~699fd07846db6.jpg",
+        "https://h-img3.cloudbeds.com/uploads/320247/dsc_0275~~699fd07f2f1bf.jpg",
+        "https://h-img2.cloudbeds.com/uploads/320247/dsc_0269~~699fd084efa0f.jpg",
+        "https://h-img3.cloudbeds.com/uploads/320247/escritorio_naranja~~699fd08c2a7e6.jpg",
+        "https://h-img3.cloudbeds.com/uploads/320247/fuente_patio~~699fd09790195.jpg",
+        "https://h-img1.cloudbeds.com/uploads/320247/fachada_vertical~~699fd0a52a95c.jpg",
+        "https://h-img1.cloudbeds.com/uploads/320247/dsc_0119~~699fd0adc8983.jpg"
+      ],
+      "accommodationCategory": "private",
+      "amenityFeature": [
+        {
+          "@type": "LocationFeatureSpecification",
+          "value": true,
+          "name": [
+            {
+              "@value": "110-120 volt circuits",
+              "@language": "en"
+            }
+          ]
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "value": true,
+          "name": [
+            {
+              "@value": "Cable television",
+              "@language": "en"
+            }
+          ]
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "value": true,
+          "name": [
+            {
+              "@value": "Coffee maker",
+              "@language": "en"
+            }
+          ]
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "value": true,
+          "name": [
+            {
+              "@value": "Hairdryer",
+              "@language": "en"
+            }
+          ]
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "value": true,
+          "name": [
+            {
+              "@value": "Microwave",
+              "@language": "en"
+            }
+          ]
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "value": true,
+          "name": [
+            {
+              "@value": "WIFI (complimentary)",
+              "@language": "en"
+            }
+          ]
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "value": true,
+          "name": [
+            {
+              "@value": "cocina",
+              "@language": "en"
+            }
+          ]
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "value": true,
+          "name": [
+            {
+              "@value": "mesa comedor",
+              "@language": "en"
+            }
+          ]
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "value": true,
+          "name": [
+            {
+              "@value": "sala",
+              "@language": "en"
+            }
+          ]
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "value": true,
+          "name": [
+            {
+              "@value": "baño con regadera",
+              "@language": "en"
+            }
+          ]
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "value": true,
+          "name": [
+            {
+              "@value": "plancha para ropa",
+              "@language": "en"
+            }
+          ]
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "value": true,
+          "name": [
+            {
+              "@value": "burro de planchar",
+              "@language": "en"
+            }
+          ]
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "value": true,
+          "name": [
+            {
+              "@value": "agua caliente 24 horas",
+              "@language": "en"
+            }
+          ]
+        }
+      ],
+      "occupancy": {
+        "@type": "QuantitativeValue",
+        "value": 2,
+        "minValue": 1,
+        "maxValue": 2,
+        "additionalProperty": [
+          {
+            "@type": "PropertyValue",
+            "name": "MaxAdults",
+            "value": 2
+          },
+          {
+            "@type": "PropertyValue",
+            "name": "MaxChildren",
+            "value": 1
+          }
+        ]
+      }
+    },
+    {
+      "@type": "HotelRoom",
+      "@id": "https://hotels.cloudbeds.com/reservation/Z2jMb3?rid=672975",
+      "name": [
+        {
+          "@value": "S5 Azul (pequeña)",
+          "@language": "es"
+        }
+      ],
+      "description": [
+        {
+          "@value": "Nuestra suite Azul es la preferida para estancias cortas y viajeros individuales. Mide 45 m2 y está equipada con cama queen size ideal para 2 personas. Ofrece un baño espacioso con regadera, balcón (se permite fumar en balcones), sala, cocina con frigobar, y clóset con caja de seguridad. Contamos con wifi de alta velocidad, sistema de entretenimiento en TV con 80 canales y conectividad a plataformas de streaming (se requiere cuenta propia para gozar de las apps). En caso de reservar más de 5 noches consecutivas, recibirá un servicio de lavandería gratuita de su ropa personal durante su estancia por semana. Ofrecemos limpieza diaria de la habitación y vigilancia nocturna. Estacionamiento sujeto a disponibilidad, no contamos con aire acondicionado (se provee ventilador portátil y calentador portátil). Excelente opción para una estancia en el corazón de la CDMX a un precio accesible.",
+          "@language": "es"
+        }
+      ],
+      "image": [
+        "https://h-img2.cloudbeds.com/uploads/320247/recmara_s5_azul~~699fd36977489.jpg",
+        "https://h-img3.cloudbeds.com/uploads/320247/recmara_con_closet_s5_azul~~699fd37c4b885.jpg",
+        "https://h-img1.cloudbeds.com/uploads/320247/sala_s5_azul~~699fd382c3811.jpg",
+        "https://h-img1.cloudbeds.com/uploads/320247/cocina_s5_azul~~699fd384eb4d5.jpg",
+        "https://h-img1.cloudbeds.com/uploads/320247/bao_s5_azul~~699fd389a3c8c.jpg",
+        "https://h-img2.cloudbeds.com/uploads/320247/lavabo_s5_azul~~699fd38c5e225.jpg",
+        "https://h-img3.cloudbeds.com/uploads/320247/balcn_suite_azul~~699fd39b047ea.jpg",
+        "https://h-img3.cloudbeds.com/uploads/320247/fuente_patio~~699fd3a19d846.jpg",
+        "https://h-img1.cloudbeds.com/uploads/320247/dsc_0099~~699fd3aa7bd90.jpg",
+        "https://h-img3.cloudbeds.com/uploads/320247/dsc_0119~~699fd3b0c43b4.jpg"
+      ],
+      "accommodationCategory": "private",
+      "amenityFeature": [
+        {
+          "@type": "LocationFeatureSpecification",
+          "value": true,
+          "name": [
+            {
+              "@value": "110-120 volt circuits",
+              "@language": "en"
+            }
+          ]
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "value": true,
+          "name": [
+            {
+              "@value": "Cable television",
+              "@language": "en"
+            }
+          ]
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "value": true,
+          "name": [
+            {
+              "@value": "Coffee maker",
+              "@language": "en"
+            }
+          ]
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "value": true,
+          "name": [
+            {
+              "@value": "Hairdryer",
+              "@language": "en"
+            }
+          ]
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "value": true,
+          "name": [
+            {
+              "@value": "Microwave",
+              "@language": "en"
+            }
+          ]
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "value": true,
+          "name": [
+            {
+              "@value": "WIFI (complimentary)",
+              "@language": "en"
+            }
+          ]
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "value": true,
+          "name": [
+            {
+              "@value": "cocina",
+              "@language": "en"
+            }
+          ]
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "value": true,
+          "name": [
+            {
+              "@value": "sala",
+              "@language": "en"
+            }
+          ]
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "value": true,
+          "name": [
+            {
+              "@value": "balcón",
+              "@language": "en"
+            }
+          ]
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "value": true,
+          "name": [
+            {
+              "@value": "baño con regadera",
+              "@language": "en"
+            }
+          ]
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "value": true,
+          "name": [
+            {
+              "@value": "plancha para ropa",
+              "@language": "en"
+            }
+          ]
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "value": true,
+          "name": [
+            {
+              "@value": "burro de planchar",
+              "@language": "en"
+            }
+          ]
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "value": true,
+          "name": [
+            {
+              "@value": "agua caliente 24 horas",
+              "@language": "en"
+            }
+          ]
+        }
+      ],
+      "occupancy": {
+        "@type": "QuantitativeValue",
+        "value": 2,
+        "minValue": 1,
+        "maxValue": 2,
+        "additionalProperty": [
+          {
+            "@type": "PropertyValue",
+            "name": "MaxAdults",
+            "value": 2
+          },
+          {
+            "@type": "PropertyValue",
+            "name": "MaxChildren",
+            "value": 1
+          }
+        ]
+      }
+    },
+    {
+      "@type": "HotelRoom",
+      "@id": "https://hotels.cloudbeds.com/reservation/Z2jMb3?rid=672976",
+      "name": [
+        {
+          "@value": "S6 Roja (mediana)",
+          "@language": "es"
+        }
+      ],
+      "description": [
+        {
+          "@value": "Nuestra suite Roja es una de las preferidas por viajeros de estancias medianas y largas, ya que ofrece una cocina completa con frigobar y una mesa comedor para 2 huéspedes donde podrá trabajar de forma cómoda. Está equipada con cama queen size ideal para 2 personas. Ofrece un baño espacioso con regadera, balcón (se permite fumar en balcones), sala, comedor, cocina, y clóset con caja de seguridad. Contamos con wifi de alta velocidad, sistema de entretenimiento en TV con 80 canales y conectividad a plataformas de streaming (se requiere cuenta propia para gozar de las apps). En caso de reservar más de 5 noches consecutivas, recibirá un servicio de lavandería gratuita de su ropa personal durante su estancia por semana. Ofrecemos limpieza diaria de la habitación y vigilancia nocturna. Estacionamiento sujeto a disponibilidad, no contamos con aire acondicionado (se provee ventilador portátil y calentador portátil). Excelente opción para una estancia en el corazón de la CDMX a un precio accesible.",
+          "@language": "es"
+        }
+      ],
+      "image": [
+        "https://h-img1.cloudbeds.com/uploads/320247/comedor_cocina_y_muro_decorado_s6_roja~~699fd48a17973.jpg",
+        "https://h-img3.cloudbeds.com/uploads/320247/vista_general_desde_pasillo_s6_roja~~699fd49918845.jpg",
+        "https://h-img1.cloudbeds.com/uploads/320247/sala_con_recmara_al_fondo_s6_roja~~699fd49be174d.jpg",
+        "https://h-img3.cloudbeds.com/uploads/320247/recmara_grande_con_ventana_s6_roja~~699fd49e98ee3.jpg",
+        "https://h-img1.cloudbeds.com/uploads/320247/recmara_con_closet_y_bao_s6_roja~~699fd4a162c7d.jpg",
+        "https://h-img2.cloudbeds.com/uploads/320247/dsc_0030~~699fd4d91986d.jpg",
+        "https://h-img1.cloudbeds.com/uploads/320247/bao_con_regadera_s6_roja~~699fd4a3e5646.jpg",
+        "https://h-img3.cloudbeds.com/uploads/320247/dsc_0037~~699fd4dcc0703.jpg",
+        "https://h-img1.cloudbeds.com/uploads/320247/cuadro_roja~~699fd4cee1a6b.jpg",
+        "https://h-img2.cloudbeds.com/uploads/320247/dsc_0090~~699fd4b4cad65.jpg",
+        "https://h-img2.cloudbeds.com/uploads/320247/fuente_patio~~699fd4bb488f4.jpg",
+        "https://h-img2.cloudbeds.com/uploads/320247/dsc_0119~~699fd4c1e2562.jpg"
+      ],
+      "accommodationCategory": "private",
+      "amenityFeature": [
+        {
+          "@type": "LocationFeatureSpecification",
+          "value": true,
+          "name": [
+            {
+              "@value": "110-120 volt circuits",
+              "@language": "en"
+            }
+          ]
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "value": true,
+          "name": [
+            {
+              "@value": "Cable television",
+              "@language": "en"
+            }
+          ]
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "value": true,
+          "name": [
+            {
+              "@value": "Coffee maker",
+              "@language": "en"
+            }
+          ]
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "value": true,
+          "name": [
+            {
+              "@value": "Hairdryer",
+              "@language": "en"
+            }
+          ]
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "value": true,
+          "name": [
+            {
+              "@value": "Microwave",
+              "@language": "en"
+            }
+          ]
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "value": true,
+          "name": [
+            {
+              "@value": "WIFI (complimentary)",
+              "@language": "en"
+            }
+          ]
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "value": true,
+          "name": [
+            {
+              "@value": "cocina",
+              "@language": "en"
+            }
+          ]
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "value": true,
+          "name": [
+            {
+              "@value": "mesa comedor",
+              "@language": "en"
+            }
+          ]
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "value": true,
+          "name": [
+            {
+              "@value": "sala",
+              "@language": "en"
+            }
+          ]
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "value": true,
+          "name": [
+            {
+              "@value": "balcón",
+              "@language": "en"
+            }
+          ]
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "value": true,
+          "name": [
+            {
+              "@value": "baño con regadera",
+              "@language": "en"
+            }
+          ]
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "value": true,
+          "name": [
+            {
+              "@value": "plancha para ropa",
+              "@language": "en"
+            }
+          ]
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "value": true,
+          "name": [
+            {
+              "@value": "burro de planchar",
+              "@language": "en"
+            }
+          ]
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "value": true,
+          "name": [
+            {
+              "@value": "agua caliente 24 horas",
+              "@language": "en"
+            }
+          ]
+        }
+      ],
+      "occupancy": {
+        "@type": "QuantitativeValue",
+        "value": 2,
+        "minValue": 1,
+        "maxValue": 2,
+        "additionalProperty": [
+          {
+            "@type": "PropertyValue",
+            "name": "MaxAdults",
+            "value": 2
+          },
+          {
+            "@type": "PropertyValue",
+            "name": "MaxChildren",
+            "value": 1
+          }
+        ]
+      }
+    }
+  ]
+}
