@@ -1,0 +1,32 @@
+---
+import '../styles/olivia.css';
+const { lang = 'es' } = Astro.props;
+const en = lang === 'en';
+const t = (es: string, english: string) => en ? english : es;
+---
+<aside class="olivia-widget" data-olivia>
+  <button class="olivia-launcher" data-olivia-open aria-controls="olivia-panel" aria-expanded="false">
+    <span aria-hidden="true">O<span>✧</span></span>
+    <span>{t('Pregunta a Olivia', 'Ask Olivia')}<small>{t('Tu concierge de IA', 'Your AI concierge')}</small></span>
+  </button>
+  <section id="olivia-panel" class="olivia-panel" role="dialog" aria-modal="false" aria-labelledby="olivia-title" hidden>
+    <div class="olivia-heading">
+      <div><strong id="olivia-title">Olivia AI <span>✧</span></strong><span>Business Suites SG · {t('Concierge de IA', 'AI concierge')}</span></div>
+      <button type="button" data-olivia-close aria-label={t('Cerrar conversación', 'Close conversation')}>×</button>
+    </div>
+    <div class="olivia-messages" data-olivia-messages role="log" aria-live="polite" aria-label={t('Conversación con Olivia', 'Conversation with Olivia')}>
+      <p class="olivia-message olivia-message--assistant">{t('¡Hola! Soy Olivia, tu concierge de IA. Puedo ayudarte a conocer las suites, preparar tu llegada y encontrar la información para tu estancia. ¿En qué puedo ayudarte?', 'Hello! I’m Olivia, your AI concierge. I can help you explore the suites, prepare for arrival and find information for your stay. How can I help?')}</p>
+    </div>
+    <p class="olivia-status" data-olivia-status role="status"></p>
+    <form class="olivia-form" data-olivia-form>
+      <label class="olivia-consent"><input type="checkbox" data-olivia-consent required /><span>{t('Acepto el envío y almacenamiento de mi conversación para atender mi consulta mediante IA.', 'I agree to my conversation being sent and stored to answer my enquiry using AI.')}</span></label>
+      <details class="olivia-privacy"><summary>{t('Sobre tu conversación', 'About your conversation')}</summary><p>{t('Olivia procesa los mensajes con un proveedor de IA y los guarda en un espacio de Business Suites SG. Evita datos sensibles y de pago. Para una consulta personal, contacta directamente al hotel.', 'Olivia processes messages with an AI provider and stores them in a Business Suites SG workspace. Avoid sensitive and payment information. For a personal enquiry, contact the hotel directly.')}</p></details>
+      <label class="olivia-input-label" for="olivia-message">{t('Tu mensaje', 'Your message')}</label>
+      <div class="olivia-composer"><textarea id="olivia-message" data-olivia-input rows="2" maxlength="4000" required placeholder={t('¿Qué te gustaría saber?', 'What would you like to know?')}></textarea><button type="submit" data-olivia-send aria-label={t('Enviar mensaje', 'Send message')}>↑</button></div>
+    </form>
+    <div class="olivia-links"><a href={`https://hotels.cloudbeds.com/${lang}/reservation/Z2jMb3/?currency=mxn`} target="_blank" rel="noopener">{t('Reservar en Cloudbeds', 'Book on Cloudbeds')} ↗</a><a href="tel:+525536668535">{t('Llamar al hotel', 'Call the hotel')} ↗</a></div>
+  </section>
+</aside>
+<script>
+  import '../scripts/olivia';
+</script>

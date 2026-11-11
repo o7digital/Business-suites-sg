@@ -1,0 +1,124 @@
+:root {
+  --muted: #65594f;
+}
+
+body { font-size: 16px; }
+.muted, .suites-section h2 em { color: #756251; }
+.brand-name { font-size: 12px; font-weight: 600; letter-spacing: 1.6px; }
+.brand-name > span { font-size: 9px; letter-spacing: 1.4px; opacity: 1; }
+
+.essence-copy p,
+.section-heading p,
+.suite-description > p,
+.neighbourhood-top p,
+.neighbourhood-bottom p,
+.faq-list details p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--muted);
+}
+
+.section-heading p { width: min(34%, 360px); }
+.neighbourhood-top p { max-width: 380px; }
+.living-features p { font-size: 15px; line-height: 1.8; color: #eaded6; }
+.living-section .section-heading p { color: #eaded6; }
+.living-section .section-kicker > span:last-child { color: #eaded6; }
+.living-features h3 { font-size: 30px; }
+
+.eyebrow,
+.hero-content .eyebrow,
+.slow-banner .eyebrow,
+.neighbourhood-top .eyebrow,
+.neighbourhood-bottom .eyebrow,
+.faq .eyebrow,
+.final-cta > .eyebrow { font-size: 12px; letter-spacing: 1.6px; }
+.hero-description { font-size: 18px; opacity: 1; }
+.hero-topline, .hero-note, .scroll-cue { font-size: 11px; }
+.hero-explore, .text-link, .suite-actions .text-link,
+.gallery-heading .text-link, .faq .text-link,
+.solid-button, .booking-form .solid-button,
+.suite-actions .solid-button, .outline-button { font-size: 14px; font-weight: 600; }
+
+.booking-form { grid-template-columns: 1fr 1fr 1fr .8fr 1.25fr; gap: 20px; }
+.booking-form > *, .suite-description, .essence-copy { min-width: 0; }
+.booking-intro .eyebrow, .booking-form label > span { font-size: 12px; color: var(--muted); }
+.booking-form input, .booking-form select { font-size: 16px; min-height: 40px; }
+.booking-footnote { font-size: 12px; letter-spacing: 0; gap: 16px; }
+.section-kicker { font-size: 11px; letter-spacing: 1.3px; }
+.section-kicker > span:last-child { font-size: 10px; }
+.essence-facts > div > span { font-size: 13px; }
+.suite-tabs button { font-size: 14px; color: var(--muted); }
+.tab-number { font-size: 10px; color: var(--muted); }
+.suite-category { font-size: 11px; color: var(--muted); flex-wrap: wrap; }
+.suite-image-label { font-size: 10px; }
+.room-features { font-size: 14px; gap: 16px; }
+.room-features li { display: flex; align-items: baseline; gap: 10px; }
+.room-features li > span { flex-shrink: 0; }
+.suite-actions { flex-wrap: wrap; gap: 18px 24px; }
+.suite-smallprint { font-size: 12px; color: var(--muted); }
+.vertical-caption, .photo-inset > span { font-size: 10px; letter-spacing: 1px; }
+.neighbourhood-places strong { font-size: 16px; }
+.neighbourhood-places > div > span:last-child { font-size: 14px; }
+.neighbourhood-places > div > span:first-child { font-size: 11px; color: var(--muted); }
+.gallery-label { font-size: 14px; text-shadow: 0 1px 6px #000; }
+.faq-list summary { font-size: 16px; }
+.faq-number { font-size: 11px; color: var(--muted); flex-shrink: 0; }
+.circle-cta > span:last-child { font-size: 11px; letter-spacing: .8px; }
+.cta-address, .city-image-caption > span { font-size: 10px; }
+.footer-address, .footer-contact, .footer-contact a:last-child { font-size: 14px; overflow-wrap: anywhere; }
+.footer-bottom, .footer-bottom button { font-size: 12px; }
+.footer-bottom { flex-wrap: wrap; }
+#credits p { font-size: 15px; }
+.lightbox-top { font-size: 14px; }
+#lightbox-counter { font-size: 12px; }
+#mobile-menu > p { font-size: 11px; }
+
+@media (max-width: 1100px) {
+  .booking-form { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+  .booking-intro { display: none; }
+  .booking-form label:first-of-type { border-left: 0; padding-left: 0; }
+  .booking-form .solid-button { grid-column: 1 / -1; justify-content: center; }
+}
+
+@media (max-width: 850px) {
+  .section-heading { align-items: start; }
+  .section-heading p { width: min(42%, 360px); }
+  .essence-layout { grid-template-columns: 1fr; gap: 65px; }
+  .essence-copy p { max-width: 620px; }
+  .essence-photos { width: min(80%, 500px); margin-left: auto; }
+  .footer-main { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) 40px; }
+}
+
+@media (max-width: 600px) {
+  .brand-name { font-size: 9px; }
+  .brand-name > span { font-size: 7px; }
+  .hero-content .eyebrow { max-width: 300px; margin-left: auto; margin-right: auto; font-size: 10px; }
+  .hero-description { font-size: 15px; max-width: 290px; margin-left: auto; margin-right: auto; }
+  .hero-topline { font-size: 9px; letter-spacing: 1px; }
+  .scroll-cue { font-size: 9px; }
+  .booking-form { grid-template-columns: repeat(2, minmax(0, 1fr)); padding: 22px 16px; }
+  .booking-form .guest-field { grid-column: 1 / -1; }
+  .booking-form .solid-button { grid-column: 1 / -1; min-height: 52px; }
+  .booking-footnote { flex-direction: column; gap: 4px; }
+  .booking-footnote > span:last-child { white-space: normal; }
+  .section-kicker { flex-wrap: wrap; gap: 12px; font-size: 10px; }
+  .section-kicker > span:last-child { font-size: 10px; }
+  .section-kicker .line { min-width: 15px; }
+  .section-heading p { width: auto; max-width: none; }
+  .essence-photos { width: 87%; }
+  .essence-facts { flex-wrap: wrap; }
+  .essence-facts > div > span { font-size: 12px; max-width: 120px; }
+  .suite-tabs button { padding: 15px 6px; gap: 8px; }
+  .room-features { font-size: 14px; column-gap: 12px; }
+  .suite-actions .solid-button { flex: 1 1 100%; }
+  .living-features { grid-template-columns: 1fr; gap: 32px; }
+  .living-features p { font-size: 16px; }
+  .gallery-heading { align-items: start; flex-direction: column; }
+  .gallery-label { font-size: 12px; }
+  .faq-list summary { gap: 12px; }
+  .faq-list details p { margin-left: 26px; margin-right: 8px; }
+  .footer-main { grid-template-columns: minmax(0, 1fr) 40px; }
+  .footer-brand, .footer-address { grid-column: 1 / -1; }
+  .back-top { height: 40px; }
+  .cta-address { display: none; }
+}

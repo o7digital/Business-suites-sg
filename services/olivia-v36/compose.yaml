@@ -1,0 +1,44 @@
+name: business-suites-sg-olivia36
+services:
+  postgres:
+    image: pgvector/pgvector:pg16
+    container_name: business-suites-sg-olivia36-db
+    restart: unless-stopped
+    mem_limit: 256m
+    env_file: .env.db
+    volumes: ["database:/var/lib/postgresql/data", "./init.sql:/docker-entrypoint-initdb.d/01-vector.sql:ro"]
+    networks: [private]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
+      interval: 5s
+      timeout: 3s
+      retries: 12
+  api:
+    build: .
+    image: business-suites-sg-olivia36:local
+    container_name: business-suites-sg-olivia36
+    restart: unless-stopped
+    mem_limit: 512m
+    env_file: .env
+    ports: ["127.0.0.1:8137:8093"]
+    depends_on:
+      postgres: {condition: service_healthy}
+    networks:
+      private: {}
+      egress: {}
+      proxy:
+        aliases: [business-suites-sg-olivia36]
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8093/health', timeout=5)"]
+      interval: 15s
+      timeout: 6s
+      retries: 12
+      start_period: 120s
+networks:
+  private: {internal: true}
+  egress: {}
+  proxy:
+    external: true
+    name: mailcowdockerized_mailcow-network
+volumes:
+  database: {}

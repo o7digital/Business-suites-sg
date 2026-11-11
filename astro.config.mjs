@@ -1,2 +1,3 @@
 import { defineConfig } from 'astro/config';
-export default defineConfig({ output: 'static', site: 'https://business-suites-sg.vercel.app' });
+import vercel from '@astrojs/vercel';
+export default defineConfig({ output: 'static', adapter: vercel({ maxDuration: 60 }), site: 'https://business-suites-sg.vercel.app' });

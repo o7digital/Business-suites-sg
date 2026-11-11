@@ -2,7 +2,9 @@
 import '../styles/fonts.css';
 import '../styles/global.css';
 import '../styles/header.css';
+import '../styles/readability.css';
 import { rooms } from '../data/rooms';
+import Olivia from './Olivia.astro';
 const { lang = 'es' } = Astro.props;
 const en = lang === 'en';
 const l = en ? 1 : 0;
@@ -97,6 +99,7 @@ const faqs = [
  <dialog id="mobile-menu"><div class="mobile-menu-top"><span class="monogram">SG.</span><button data-close aria-label={t('Cerrar menú','Close menu')}>×</button></div><nav><a href="#esencia">{t('La esencia','The essence')}<span>01</span></a><a href="#suites">{t('Las suites','The suites')}<span>02</span></a><a href="#barrio">{t('El barrio','The neighbourhood')}<span>03</span></a><a href="#galeria">{t('Galería','Gallery')}<span>04</span></a><a href="#reservar">{t('Reservar','Book your stay')}<span>↗</span></a></nav><p>RÍO NAZAS 138 · CDMX</p></dialog>
  <dialog id="lightbox" aria-label={t('Galería de fotos','Photo gallery')}><div class="lightbox-top"><span id="lightbox-title">Business Suites SG</span><button data-close aria-label={t('Cerrar galería','Close gallery')}>×</button></div><div class="lightbox-content"><button id="lightbox-prev" aria-label={t('Foto anterior','Previous photo')}>←</button><img id="lightbox-image" src="/images/negra-bedroom.jpg" alt=""/><button id="lightbox-next" aria-label={t('Foto siguiente','Next photo')}>→</button></div><p id="lightbox-counter" aria-live="polite"></p></dialog>
  <dialog id="credits"><button data-close class="credits-close" aria-label={t('Cerrar','Close')}>×</button><h2>{t('Créditos fotográficos','Photo credits')}</h2><p>{t('Fotografías de Business Suites SG: galería del establecimiento en Cloudbeds.','Business Suites SG photographs: the property’s gallery on Cloudbeds.')}</p><p>{t('Ángel de la Independencia:','Angel of Independence:')} <span>Mario Yaír TS</span> · <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>. {t('Composición panorámica presentada con recorte de visualización.','Panoramic composition shown with display cropping.')} <a href="https://commons.wikimedia.org/wiki/File:Atardecer_en_el_Paseo_de_la_Reforma_en_Ciudad_de_M%C3%A9xico_2.jpg" target="_blank" rel="noopener">Wikimedia Commons ↗</a></p></dialog>
+ <Olivia lang={lang} />
  <script>import '../scripts/interactions';</script>
 </body>
 </html>
