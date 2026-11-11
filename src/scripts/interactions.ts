@@ -1,6 +1,13 @@
 const $ = <T extends Element = HTMLElement>(selector: string) => document.querySelector<T>(selector)!;
 const $$ = <T extends Element = HTMLElement>(selector: string) => [...document.querySelectorAll<T>(selector)];
 
+const header = $('#header');
+function updateHeader() {
+ header.classList.toggle('is-scrolled', window.scrollY > 24);
+}
+window.addEventListener('scroll', updateHeader, { passive: true });
+updateHeader();
+
 // Progressive enhancement: content is visible if JavaScript or observers are unavailable.
 if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
  document.documentElement.classList.add('motion-ready');
