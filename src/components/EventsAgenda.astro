@@ -1,0 +1,55 @@
+---
+import type { Language } from '../lib/events-calendar';
+import { bookingUrl } from '../data/olivia';
+import data from '../data/events.json';
+import { mexicoMonth, renderAgenda } from '../lib/events-calendar';
+import '../styles/events.css';
+
+interface Props { lang: Language; }
+const { lang } = Astro.props;
+const month = mexicoMonth();
+---
+<section id="eventos" class="events" aria-labelledby="events-title" data-events-calendar data-month={month} data-language={lang} data-booking-url={bookingUrl(lang)}>
+  <Fragment set:html={renderAgenda(data, month, lang, bookingUrl(lang))} />
+</section>
+
+<script>
+  import { mexicoMonth, renderAgenda, type CalendarEvent } from '../lib/events-calendar';
+  const root = document.querySelector<HTMLElement>('[data-events-calendar]');
+  if (root) {
+    const lang = root.dataset.language === 'en' || root.dataset.language === 'zh' ? root.dataset.language : 'es';
+    const booking = root.dataset.bookingUrl || '';
+    let updating = false;
+    let approvedMonth = '';
+    let rendered = '';
+    const show = (month: string, events: CalendarEvent[]) => {
+      const next = JSON.stringify([month, events]);
+      if (rendered === next) return;
+      rendered = next;
+      root.innerHTML = renderAgenda({ months: { [month]: events } }, month, lang, booking);
+      root.dataset.month = month;
+    };
+    const refreshMonth = async () => {
+      if (updating) return;
+      updating = true;
+      if (!approvedMonth && root.dataset.month !== mexicoMonth()) show(mexicoMonth(), []);
+      try {
+        const response = await fetch('/api/events-calendar', { cache: 'no-store', signal: AbortSignal.timeout(12000) });
+        if (!response.ok) throw new Error('Calendar unavailable');
+        const feed = await response.json();
+        if (!/^20\d{2}-(0[1-9]|1[0-2])$/.test(feed.monthKey) || !Array.isArray(feed.events) || typeof feed.available !== 'boolean') throw new Error('Invalid calendar');
+        show(feed.monthKey, feed.available ? feed.events : []);
+        approvedMonth = feed.monthKey;
+      } catch {
+        if (root.dataset.month !== mexicoMonth()) show(mexicoMonth(), []);
+      } finally { updating = false; }
+    };
+    root.addEventListener('error', event => {
+      if (event.target instanceof HTMLImageElement) (event.target.closest('.events__image') as HTMLElement | null)?.setAttribute('hidden', '');
+    }, true);
+    refreshMonth();
+    window.setInterval(refreshMonth, 60000);
+    window.addEventListener('pageshow', refreshMonth);
+    document.addEventListener('visibilitychange', () => { if (!document.hidden) refreshMonth(); });
+  }
+</script>

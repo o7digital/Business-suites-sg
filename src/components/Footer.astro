@@ -6,7 +6,7 @@ const t = (es: string, english: string, chinese: string) => zh ? chinese : en ? 
 ---
 <footer>
  <div class="footer-main">
-  <a class="brand footer-brand" href={en || zh ? '/en/' : '/'}><span class="monogram">SG<span class="monogram-dot">.</span></span><span class="brand-name">BUSINESS SUITES<span>CIUDAD DE MÉXICO</span></span></a>
+  <a class="brand footer-brand" href={zh ? '/zh/' : en ? '/en/' : '/'}><span class="monogram">SG<span class="monogram-dot">.</span></span><span class="brand-name">BUSINESS SUITES<span>{t('CIUDAD DE MÉXICO', 'MEXICO CITY', '墨西哥城')}</span></span></a>
   <div class="footer-address">Río Nazas 138, Col. Cuauhtémoc<br/>06500, {t('Ciudad de México', 'Mexico City', '墨西哥城')}</div>
   <div class="footer-contact"><a href="tel:+525536668535">+52 55 3666 8535</a><a href="mailto:contacto@businesssuitessg.com">contacto@businesssuitessg.com</a></div>
   <a href="#main" class="back-top" aria-label={t('Volver arriba', 'Back to top', '返回顶部')}>↑</a>

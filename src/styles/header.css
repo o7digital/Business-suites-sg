@@ -13,11 +13,29 @@ html {
 }
 
 .desktop-nav {
-  gap: 28px;
+  gap: 22px;
   font-size: 14px;
   font-weight: 600;
   letter-spacing: 1px;
   text-transform: uppercase;
+}
+
+.hotel-languages { display: flex; align-items: center; gap: 12px; }
+.hotel-languages a[aria-current="page"] { color: #e7d3b2; border-bottom: 1px solid currentColor; }
+.hotel-header .header-actions { gap: 20px; }
+
+@media (max-width: 1280px) {
+  .hotel-header .desktop-nav { display: none; }
+  .hotel-header .menu-toggle { display: block; }
+}
+
+@media (max-width: 600px) {
+  .hotel-header .header-actions { gap: 10px; }
+  .hotel-languages { gap: 10px; }
+}
+
+@media (max-width: 360px) {
+  .hotel-header .brand-name { display: none; }
 }
 
 .desktop-nav a {

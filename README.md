@@ -1,8 +1,8 @@
 # Business Suites SG
 
-Premium bilingual hotel concept built with Astro. Spanish homepage `/`; English `/en/`.
+Premium trilingual hotel concept built with Astro. Spanish homepage `/`, English `/en/` and Simplified Chinese `/zh/`.
 
-Deployed preview: https://business-suites-sg.vercel.app/ (Spanish) and https://business-suites-sg.vercel.app/en/ (English).
+Deployed site: https://www.businesssuitessg.com/ (Spanish), https://www.businesssuitessg.com/en/ (English) and https://www.businesssuitessg.com/zh/ (Simplified Chinese).
 
 ## Develop
 
@@ -19,16 +19,16 @@ npm run dev
 npm run build
 ```
 
-The two hotel pages are prerendered. The Vercel adapter additionally builds the server-only `/api/olivia/session` and `/api/olivia/chat` routes in `.vercel/output/`. The hotel pages work without an AI credential; Olivia requires the server-only `OLIVIA_GATEWAY_KEY` environment variable. `npm run dev` serves the local preview.
+The three hotel pages are prerendered. The Vercel adapter additionally builds the server-only `/api/events-calendar`, `/api/olivia/session` and `/api/olivia/chat` routes in `.vercel/output/`. The hotel pages work without an AI credential; Olivia requires the server-only `OLIVIA_GATEWAY_KEY` environment variable. `npm run dev` serves the local preview.
 
 ## Files
 
-- `src/components/Hotel.astro`: page structure and bilingual copy
+- `src/components/Hotel.astro`: page structure and trilingual hotel copy
 - `src/data/rooms.ts`: six suites and their verified characteristics
 - `src/styles/global.css`: responsive visual design
 - `src/styles/header.css`: fixed header and uppercase navigation
 - `src/styles/readability.css`: readable body text, stronger contrast and responsive spacing
-- `src/components/Olivia.astro`: bilingual hotel concierge widget
+- `src/components/Olivia.astro`: trilingual hotel concierge widget
 - `src/server/olivia-gateway.ts`: signed visitor sessions and the fixed-hotel API gateway
 - `services/olivia-v36/`: dedicated VPS1 Olivia 3.6 service, deployment and backend tests
 - `src/scripts/interactions.ts`: suite tabs, accessible lightbox, mobile navigation, date validation
@@ -45,9 +45,19 @@ Property source: https://hotels.cloudbeds.com/es/reservation/Z2jMb3/?currency=mx
 
 Cloudbeds opened successfully in Firefox during delivery checks. A test handoff for January 15–18, 2027 displayed the requested dates in the booking engine. No room was added and no reservation or payment was made.
 
+## Events and Chinese homepage
+
+The top navigation and mobile menu place Eventos / Events / 活动 directly after Galería / Gallery / 相册, linking to `#eventos` on each homepage. The shared agenda reproduces Kepler’s event cards, translated copy, dates, venues, photos, official links and chronological order. Its introduction describes Business Suites SG near Reforma and its booking links use SG’s `Z2jMb3` engine.
+
+The same-origin `/api/events-calendar` route reads only Kepler’s public published calendar. It validates all three translations, dates, links and image dimensions; no credentials or draft content are used. The browser refreshes the agenda every minute and when returning to the page. A local copy of the November 2026–February 2027 calendar and its WebP images keeps the current month available during a temporary feed outage. After the last prepared month, the fallback displays an empty state instead of old events. Month boundaries use `America/Mexico_City`.
+
+The new `/zh/` homepage translates the full hotel copy, suite descriptions and features, FAQs, booking controls, menus and photo credits into Simplified Chinese. The original hotel facts, room names and photo assets are retained. The ES / EN / 中文 header links preserve the current section, including `#eventos`; the Chinese privacy notice and footer now link back to `/zh/`.
+
+`npm test` includes eight calendar/proxy checks and six Olivia gateway checks. Calendar checks cover month/year transitions, chronological ordering, complete translations, local images, published-only feeds, fixed-source requests, invalid data and HTML/link safety.
+
 ## Privacy notice
 
-The notice is available in Spanish at `/privacy-policy/`, English at `/en/privacy-policy/` and Simplified Chinese at `/zh/privacy-policy/`. Each notice has a three-language selector and a localized footer; the hotel footer and Olivia's consent text link to the matching Spanish or English notice. The Chinese notice returns to the English hotel homepage. All three versions contain the same 12 sections, adapted from https://www.businesssuiteskepler.com/privacy-policy/ for BUSINESS SUITES SG, Río Nazas 138 and `contacto@businesssuitessg.com`, updated November 14, 2026. They cover accommodation enquiries, Cloudbeds, Olivia, Google Analytics, session cookies and ARCO requests. The footer uses the same contact email; this change does not provision an email mailbox.
+The notice is available in Spanish at `/privacy-policy/`, English at `/en/privacy-policy/` and Simplified Chinese at `/zh/privacy-policy/`. Each notice has a three-language selector and a localized footer; the hotel footer and Olivia's consent text link to the matching language notice. The Chinese notice returns to the Chinese hotel homepage. All three versions contain the same 12 sections, adapted from https://www.businesssuiteskepler.com/privacy-policy/ for BUSINESS SUITES SG, Río Nazas 138 and `contacto@businesssuitessg.com`, updated November 14, 2026. They cover accommodation enquiries, Cloudbeds, Olivia, Google Analytics, session cookies and ARCO requests. The footer uses the same contact email; this change does not provision an email mailbox.
 
 ## Content and imagery
 
@@ -74,11 +84,11 @@ The readability revision uses 16 px for primary paragraphs, 14 px for most contr
 
 Olivia runs in the dedicated `business-suites-sg-olivia36` service on VPS1, with its own PostgreSQL volume, gateway credential and eight approved hotel documents. The existing Olivia 3.6 RAG/chat core is retained under `services/olivia-v36/core/` with upstream repository/revision metadata. Suites Mine and Vialterna business profiles are not used for hotel replies.
 
-The shared widget appears on both hotel homepages and all three privacy pages. Its floating launcher, four quick questions and consent-first composer follow the Kepler concierge flow, using SG's colours and hotel information. Visitors can switch the chat interface between Spanish, English and Simplified Chinese without changing pages. The engine follows the actual visitor message language, including explicit language requests and conversation follow-ups; the interface language is a fallback. The existing deployed visitor-language policy is retained in the repository.
+The shared widget appears on all three hotel homepages and all three privacy pages. Its floating launcher, four quick questions and consent-first composer follow the Kepler concierge flow, using SG's colours and hotel information. Visitors can switch the chat interface between Spanish, English and Simplified Chinese without changing pages. The engine follows the actual visitor message language, including explicit language requests and conversation follow-ups; the interface language is a fallback. The existing deployed visitor-language policy is retained in the repository.
 
 The browser calls same-origin session/chat endpoints. An HttpOnly, signed, expiring cookie binds each conversation to its visitor; tenant, engine URL and upstream headers are fixed server-side. No AI provider key or gateway credential is included in browser assets. Chat requires consent before sending/storing messages. Requests have size, concurrency and rate limits. Replies use text nodes and HTTPS links, and failures preserve the question for retry. Direct contact opens `contacto@businesssuitessg.com` or the hotel phone; the engine's instructions use this current email in preference to older source records. Booking links open SG's Cloudbeds engine; Olivia has no live inventory or booking/payment capability.
 
-The revision passes six Node gateway tests and six isolated backend tests. Firefox checks cover all five routes at desktop, tablet, mobile and landscape sizes, including consent gating, quick questions, language switching, expired-session recovery, safe reply rendering and rate/network error recovery. The service image and changed source files have a dedicated rollback backup under `/opt/o7/backups/business-suites-sg-olivia36/`.
+The gateway passes six Node tests and six isolated backend tests. Firefox checks cover the hotel and privacy routes at desktop, tablet, mobile and landscape sizes, including consent gating, quick questions, language switching, expired-session recovery, safe reply rendering and rate/network error recovery. The service image and changed source files have a dedicated rollback backup under `/opt/o7/backups/business-suites-sg-olivia36/`.
 
 Run `npm run knowledge` after reviewing a hotel-information change. The service deliberately refuses silently replacing an existing knowledge revision: deploy an explicit scoped KB migration when changing that corpus. Secrets and database data are excluded from Git. The VPS service has a graceful dedicated nginx prefix, `/business-suites-sg/`, and a saved pre-change proxy configuration under `/opt/o7/backups/business-suites-sg-olivia36/`.
 

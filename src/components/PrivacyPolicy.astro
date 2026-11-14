@@ -12,7 +12,7 @@ const { lang = 'es' } = Astro.props;
 const en = lang === 'en';
 const zh = lang === 'zh';
 const t = (es: string, english: string, chinese: string) => zh ? chinese : en ? english : es;
-const home = en || zh ? '/en/' : '/';
+const home = zh ? '/zh/' : en ? '/en/' : '/';
 const languages = [
  { code: 'es', htmlLang: 'es', label: 'ES', name: 'Español', href: '/privacy-policy/' },
  { code: 'en', htmlLang: 'en', label: 'EN', name: 'English', href: '/en/privacy-policy/' },

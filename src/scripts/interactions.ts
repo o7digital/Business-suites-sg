@@ -8,6 +8,11 @@ function updateHeader() {
 window.addEventListener('scroll', updateHeader, { passive: true });
 updateHeader();
 
+// Keep the visitor's section when switching the hotel language.
+$$<HTMLAnchorElement>('[data-language-switch]').forEach(link => link.addEventListener('click', () => {
+ link.hash = location.hash;
+}));
+
 // Progressive enhancement: content is visible if JavaScript or observers are unavailable.
 if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
  document.documentElement.classList.add('motion-ready');
@@ -62,7 +67,7 @@ dateOut.addEventListener('change',()=>dateOut.setCustomValidity(''));
 $('.booking-form').addEventListener('submit',event=>{
  if(dateOut.value<=dateIn.value){
   event.preventDefault();
-  dateOut.setCustomValidity(document.documentElement.lang==='en'?'Choose a departure date after arrival.':'Elige una salida posterior a la llegada.');
+  dateOut.setCustomValidity(document.documentElement.lang==='zh-Hans'?'请选择晚于入住日期的退房日期。':document.documentElement.lang==='en'?'Choose a departure date after arrival.':'Elige una salida posterior a la llegada.');
   dateOut.reportValidity();
  }
 });
