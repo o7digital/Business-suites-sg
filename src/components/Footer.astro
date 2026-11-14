@@ -1,0 +1,19 @@
+---
+const { lang = 'es', photoCredits = false } = Astro.props;
+const en = lang === 'en';
+const t = (es: string, english: string) => en ? english : es;
+---
+<footer>
+ <div class="footer-main">
+  <a class="brand footer-brand" href={en ? '/en/' : '/'}><span class="monogram">SG<span class="monogram-dot">.</span></span><span class="brand-name">BUSINESS SUITES<span>CIUDAD DE MÉXICO</span></span></a>
+  <div class="footer-address">Río Nazas 138, Col. Cuauhtémoc<br/>06500, Ciudad de México</div>
+  <div class="footer-contact"><a href="tel:+525536668535">+52 55 3666 8535</a><a href="mailto:contacto@businesssuitessg.com">contacto@businesssuitessg.com</a></div>
+  <a href="#main" class="back-top" aria-label={t('Volver arriba', 'Back to top')}>↑</a>
+ </div>
+ <div class="footer-bottom">
+  <span>© {new Date().getFullYear()} Business Suites SG</span>
+  <a href={en ? '/en/privacy-policy/' : '/privacy-policy/'}>{t('Aviso de privacidad', 'Privacy notice')}</a>
+  <span>{t('Concepto web por', 'Web concept by')} <strong>o7 Digital</strong></span>
+  {photoCredits && <button id="credits-open">{t('Créditos fotográficos', 'Photo credits')}</button>}
+ </div>
+</footer>

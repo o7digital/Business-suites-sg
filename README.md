@@ -45,6 +45,10 @@ Property source: https://hotels.cloudbeds.com/es/reservation/Z2jMb3/?currency=mx
 
 Cloudbeds opened successfully in Firefox during delivery checks. A test handoff for January 15–18, 2027 displayed the requested dates in the booking engine. No room was added and no reservation or payment was made.
 
+## Privacy notice
+
+The Spanish notice is at `/privacy-policy/`, with an English version at `/en/privacy-policy/`. Both are linked from the shared footer and Olivia's consent text. Adapted from https://www.businesssuiteskepler.com/privacy-policy/ for BUSINESS SUITES SG, Río Nazas 138 and `contacto@businesssuitessg.com`, updated November 14, 2026. It covers accommodation enquiries, Cloudbeds, Olivia, Google Analytics, session cookies and ARCO requests. The footer uses the same contact email; this change does not provision an email mailbox.
+
 ## Content and imagery
 
 Hotel images are the actual Business Suites SG photos from the supplied Cloudbeds listing. No synthetic room photography is used. The Reforma panorama is a destination image, not a hotel view. It is by Mario Yaír TS, CC BY-SA 4.0; attribution and original source link are included in the photo-credits dialog.
