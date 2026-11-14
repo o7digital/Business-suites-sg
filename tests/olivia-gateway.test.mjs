@@ -83,3 +83,19 @@ test('upstream rate limits and failures are reported without exposing private er
     assert.equal((await response.text()).includes(key), false);
   }
 });
+
+test('all three interface languages reach the hotel engine without changing the visitor message', async () => {
+  const sent = [];
+  const gateway = createGateway(key, async (_url, options) => {
+    sent.push(JSON.parse(options.body));
+    return reply();
+  });
+  const person = visitor();
+  const { identity } = await session(gateway, person);
+  for (const language of ['es', 'en', 'zh']) {
+    assert.equal((await gateway(chat(person, identity, body({ message: '酒店有空调吗？', language })))).status, 200);
+  }
+  assert.deepEqual(sent.map(payload => payload.language), ['es', 'en', 'zh']);
+  assert(sent.every(payload => payload.message === '酒店有空调吗？'));
+  assert.equal((await gateway(chat(person, identity, body({ language: 'unknown' })))).status, 400);
+});

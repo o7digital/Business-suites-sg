@@ -6,6 +6,7 @@ import '../styles/readability.css';
 import '../styles/privacy.css';
 import GoogleAnalytics from './GoogleAnalytics.astro';
 import Footer from './Footer.astro';
+import Olivia from './Olivia.astro';
 
 const { lang = 'es' } = Astro.props;
 const en = lang === 'en';
@@ -161,5 +162,6 @@ const sections = [
    </article>
   </main>
   <Footer lang={lang} />
+  <Olivia lang={lang} />
  </body>
 </html>

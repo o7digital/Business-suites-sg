@@ -48,6 +48,10 @@ def test_greeting_is_explicitly_a_local_greeting(client):
     assert reply['engine'] == 'greeting'
     assert reply['clientCode'] == 'business-suites-sg'
     assert 'Business Suites SG' in reply['reply']
+    assert post(client,'Hello',language='es').json()['reply'].startswith('Hello!')
+    assert post(client,'Hola',language='en').json()['reply'].startswith('¡Hola!')
+    assert post(client, '您好！', language='zh').json()['reply'].startswith('您好！')
+    assert post(client, 'Hello', language='zh').json()['reply'].startswith('Hello!')
 
 
 def test_real_chat_core_uses_hotel_context_and_separate_histories(client, monkeypatch):
@@ -64,8 +68,9 @@ def test_real_chat_core_uses_hotel_context_and_separate_histories(client, monkey
     assert 'aire acondicionado' in first['reply']
     post(client, '¿Y un ventilador?')
     post(client, 'What time is check-in?', language='en', conversation_id='d'*48)
+    post(client, '酒店有空调吗？', language='zh', conversation_id='e'*48)
     assert len(histories[1]) == 2
-    assert histories[0] == histories[2] == []
+    assert histories[0] == histories[2] == histories[3] == []
 
 
 def test_provider_failure_is_not_a_fabricated_reply(client, monkeypatch):

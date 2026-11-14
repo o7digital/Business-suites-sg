@@ -58,7 +58,7 @@ export function createGateway(key: string, fetchUpstream: typeof fetch = fetch) 
     if (payload.consent !== true) return json({ error: 'Consent required' }, 400);
     const message = typeof payload.message === 'string' ? payload.message.trim() : '';
     if (!message || message.length > 4000 || typeof payload.conversationId !== 'string' || !/^[a-f0-9-]{36}$/i.test(payload.conversationId)) return json({ error: 'Invalid message' }, 400);
-    if (!['es', 'en'].includes(String(payload.language))) return json({ error: 'Invalid language' }, 400);
+    if (!['es', 'en', 'zh'].includes(String(payload.language))) return json({ error: 'Invalid language' }, 400);
     try {
       const upstream = await fetchUpstream('https://olivia.o7digitalgroup.com/business-suites-sg/chat', {
         method: 'POST', redirect: 'error', signal: AbortSignal.timeout(55000),
