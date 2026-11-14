@@ -1,19 +1,20 @@
 ---
 const { lang = 'es', photoCredits = false } = Astro.props;
 const en = lang === 'en';
-const t = (es: string, english: string) => en ? english : es;
+const zh = lang === 'zh';
+const t = (es: string, english: string, chinese: string) => zh ? chinese : en ? english : es;
 ---
 <footer>
  <div class="footer-main">
-  <a class="brand footer-brand" href={en ? '/en/' : '/'}><span class="monogram">SG<span class="monogram-dot">.</span></span><span class="brand-name">BUSINESS SUITES<span>CIUDAD DE MÉXICO</span></span></a>
-  <div class="footer-address">Río Nazas 138, Col. Cuauhtémoc<br/>06500, Ciudad de México</div>
+  <a class="brand footer-brand" href={en || zh ? '/en/' : '/'}><span class="monogram">SG<span class="monogram-dot">.</span></span><span class="brand-name">BUSINESS SUITES<span>CIUDAD DE MÉXICO</span></span></a>
+  <div class="footer-address">Río Nazas 138, Col. Cuauhtémoc<br/>06500, {t('Ciudad de México', 'Mexico City', '墨西哥城')}</div>
   <div class="footer-contact"><a href="tel:+525536668535">+52 55 3666 8535</a><a href="mailto:contacto@businesssuitessg.com">contacto@businesssuitessg.com</a></div>
-  <a href="#main" class="back-top" aria-label={t('Volver arriba', 'Back to top')}>↑</a>
+  <a href="#main" class="back-top" aria-label={t('Volver arriba', 'Back to top', '返回顶部')}>↑</a>
  </div>
  <div class="footer-bottom">
   <span>© {new Date().getFullYear()} Business Suites SG</span>
-  <a href={en ? '/en/privacy-policy/' : '/privacy-policy/'}>{t('Aviso de privacidad', 'Privacy notice')}</a>
-  <span>{t('Concepto web por', 'Web concept by')} <strong>o7 Digital</strong></span>
-  {photoCredits && <button id="credits-open">{t('Créditos fotográficos', 'Photo credits')}</button>}
+  <a href={zh ? '/zh/privacy-policy/' : en ? '/en/privacy-policy/' : '/privacy-policy/'}>{t('Aviso de privacidad', 'Privacy notice', '隐私声明')}</a>
+  <span>{t('Concepto web por', 'Web concept by', '网站设计')} <strong>o7 Digital</strong></span>
+  {photoCredits && <button id="credits-open">{t('Créditos fotográficos', 'Photo credits', '图片来源')}</button>}
  </div>
 </footer>

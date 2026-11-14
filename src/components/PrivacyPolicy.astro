@@ -9,133 +9,155 @@ import Footer from './Footer.astro';
 
 const { lang = 'es' } = Astro.props;
 const en = lang === 'en';
-const t = (es: string, english: string) => en ? english : es;
-const home = en ? '/en/' : '/';
+const zh = lang === 'zh';
+const t = (es: string, english: string, chinese: string) => zh ? chinese : en ? english : es;
+const home = en || zh ? '/en/' : '/';
+const languages = [
+ { code: 'es', htmlLang: 'es', label: 'ES', name: 'Español', href: '/privacy-policy/' },
+ { code: 'en', htmlLang: 'en', label: 'EN', name: 'English', href: '/en/privacy-policy/' },
+ { code: 'zh', htmlLang: 'zh-Hans', label: '中文', name: '简体中文', href: '/zh/privacy-policy/' }
+];
 const email = 'contacto@businesssuitessg.com';
 const sections = [
  {
-  title: t('Responsable y contacto', 'Data controller and contact'),
+  title: t('Responsable y contacto', 'Data controller and contact', '个人信息处理者与联系方式'),
   paragraphs: [t(
    `BUSINESS SUITES SG es responsable de los datos personales que trata al ofrecer sus servicios de hospedaje. Puede contactarnos en Río Nazas 138, colonia Cuauhtémoc, C.P. 06500, alcaldía Cuauhtémoc, Ciudad de México, México. Las consultas relacionadas con privacidad se atienden en ${email}.`,
-   `BUSINESS SUITES SG is responsible for the personal data it processes when providing accommodation services. Our contact address is Río Nazas 138, Colonia Cuauhtémoc, postal code 06500, Cuauhtémoc borough, Mexico City, Mexico. For privacy enquiries, email ${email}.`
+   `BUSINESS SUITES SG is responsible for the personal data it processes when providing accommodation services. Our contact address is Río Nazas 138, Colonia Cuauhtémoc, postal code 06500, Cuauhtémoc borough, Mexico City, Mexico. For privacy enquiries, email ${email}.`,
+   `BUSINESS SUITES SG 负责处理在提供住宿服务过程中涉及的个人信息。联系地址：Río Nazas 138, colonia Cuauhtémoc, C.P. 06500, alcaldía Cuauhtémoc, Ciudad de México, México（墨西哥城）。如有隐私相关问题，请发送邮件至 ${email}。`
   )]
  },
  {
-  title: t('Información que podemos recibir', 'Information we may receive'),
+  title: t('Información que podemos recibir', 'Information we may receive', '我们可能接收的信息'),
   paragraphs: [t(
    'Para consultar o reservar una estancia, podemos recibir su nombre, correo electrónico, teléfono, fechas de estancia, número de huéspedes y peticiones de alojamiento. Según la gestión, durante la reserva, el registro o la facturación también pueden requerirse identificación, nacionalidad, domicilio, RFC e información de pago. Si comparte información de sus acompañantes, asegúrese de contar con su autorización y de darles a conocer este aviso.',
-   'When you enquire about or book a stay, we may receive your name, email address, phone number, stay dates, number of guests and accommodation requests. Depending on the service, booking, check-in or invoicing may also require identification, nationality, address, tax identification number (RFC) and payment information. If you share information about accompanying guests, make sure you have their permission and tell them about this notice.'
+   'When you enquire about or book a stay, we may receive your name, email address, phone number, stay dates, number of guests and accommodation requests. Depending on the service, booking, check-in or invoicing may also require identification, nationality, address, tax identification number (RFC) and payment information. If you share information about accompanying guests, make sure you have their permission and tell them about this notice.',
+   '当您咨询或预订住宿时，我们可能接收您的姓名、电子邮箱、电话号码、入住及退房日期、入住人数和住宿需求。根据所需服务，在预订、办理入住或开具发票时，还可能需要提供身份证明、国籍、地址、墨西哥税务登记号（RFC）及支付信息。如您提供同行人员的信息，请确保已获得其授权，并向其告知本隐私声明。'
   )]
  },
  {
-  title: t('Para qué se utiliza la información', 'How information is used'),
+  title: t('Para qué se utiliza la información', 'How information is used', '信息的使用目的'),
   paragraphs: [t(
    'Usamos los datos necesarios para contestar preguntas, administrar reservas y modificaciones, organizar la llegada, identificar a los huéspedes y proporcionar los servicios contratados. También permiten gestionar pagos, emitir facturas y resolver aclaraciones. Solicitamos únicamente información relacionada con cada trámite. Los mensajes indispensables para atender una reserva forman parte del servicio de hospedaje.',
-   'We use the information needed to answer enquiries, manage bookings and changes, prepare arrivals, identify guests and provide the services requested. It also allows us to handle payments, issue invoices and resolve enquiries. We only request information relevant to each task. Messages needed to manage a booking are part of the accommodation service.'
+   'We use the information needed to answer enquiries, manage bookings and changes, prepare arrivals, identify guests and provide the services requested. It also allows us to handle payments, issue invoices and resolve enquiries. We only request information relevant to each task. Messages needed to manage a booking are part of the accommodation service.',
+   '我们使用必要的信息来回复咨询、管理预订及变更、安排入住、核实住客身份并提供所申请的服务。这些信息也用于处理付款、开具发票和解决相关疑问。我们仅索取与具体事项有关的信息。为处理预订而发送的必要通知属于住宿服务的一部分。'
   )]
  },
  {
-  title: t('Comunicaciones opcionales', 'Optional communications'),
+  title: t('Comunicaciones opcionales', 'Optional communications', '可选择接收的推广信息'),
   paragraphs: [t(
    `Recibir promociones o mensajes comerciales es opcional y, cuando corresponda, depende de su autorización. Puede negarse o solicitar la baja enviando un correo a ${email} con el asunto «Baja de comunicaciones». Su decisión no modifica la reserva ni la atención durante su estancia.`,
-   `Promotional and marketing messages are optional and require your permission where applicable. You can decline them or unsubscribe by emailing ${email} with the subject “Baja de comunicaciones”. Your decision does not affect your booking or accommodation service.`
+   `Promotional and marketing messages are optional and require your permission where applicable. You can decline them or unsubscribe by emailing ${email} with the subject “Baja de comunicaciones”. Your decision does not affect your booking or accommodation service.`,
+   `您可自行选择是否接收促销或营销信息；在适用情况下，我们会事先征得您的授权。您可以拒绝接收，或发送邮件至 ${email} 退订，邮件主题请注明“Baja de comunicaciones”（退订推广信息）。您的决定不会影响预订或住宿服务。`
   )]
  },
  {
-  title: t('Datos sensibles', 'Sensitive information'),
+  title: t('Datos sensibles', 'Sensitive information', '敏感个人信息'),
   paragraphs: [t(
    'Para consultas generales, evite enviar información de salud u otros datos sensibles por correo electrónico. Si una petición concreta hace necesario tratar esa información, primero se le explicará el motivo y se recabará el consentimiento expreso y por escrito que resulte aplicable.',
-   'For general enquiries, please avoid sending health information or other sensitive personal data by email. If a specific request makes such information necessary, we will first explain its purpose and obtain the express written consent required for that processing.'
+   'For general enquiries, please avoid sending health information or other sensitive personal data by email. If a specific request makes such information necessary, we will first explain its purpose and obtain the express written consent required for that processing.',
+   '进行一般咨询时，请勿通过电子邮件发送健康信息或其他敏感个人信息。如果某项具体需求确实需要处理此类信息，我们会先说明用途，并在处理前取得适用法律要求的明确书面同意。'
   )]
  },
  {
-  title: t('Reservas en Cloudbeds y servicios externos', 'Cloudbeds bookings and external services'),
+  title: t('Reservas en Cloudbeds y servicios externos', 'Cloudbeds bookings and external services', 'Cloudbeds 预订与外部服务'),
   paragraphs: [t(
    'Los enlaces de reserva conducen al motor externo de Cloudbeds. Antes de proporcionar datos allí, consulte sus avisos de privacidad y condiciones. Los proveedores de reservas, pagos y soporte tecnológico pueden participar en esas operaciones conforme a la función que desempeñen. Los mapas y demás páginas externas enlazadas cuentan con sus propios operadores y avisos.',
-   'Booking links take you to the external Cloudbeds booking engine. Before entering information there, review its privacy notices and terms. Booking, payment and technology providers may participate in those transactions according to their respective roles. Linked maps and other external websites have their own operators and privacy notices.'
+   'Booking links take you to the external Cloudbeds booking engine. Before entering information there, review its privacy notices and terms. Booking, payment and technology providers may participate in those transactions according to their respective roles. Linked maps and other external websites have their own operators and privacy notices.',
+   '预订链接将带您前往 Cloudbeds 的外部预订平台。在该平台填写信息前，请阅读其隐私声明和服务条款。预订、支付和技术服务提供商可能根据各自职责参与相关操作。本站链接的地图及其他外部网站由各自的运营方管理，并适用其各自的隐私声明。'
   )]
  },
  {
-  title: t('Chat con Olivia IA', 'Chat with Olivia AI'),
+  title: t('Chat con Olivia IA', 'Chat with Olivia AI', 'Olivia 人工智能聊天'),
   paragraphs: [t(
    `Usar Olivia es opcional. Antes de enviar un mensaje, el chat solicita su aceptación. Las consultas y el historial se procesan con inteligencia artificial y se almacenan en la plataforma Olivia en un espacio dedicado a BUSINESS SUITES SG para atender sus preguntas. Para proteger el servicio, las solicitudes también pueden incluir datos técnicos, como la dirección IP. No comparta contraseñas, datos sensibles ni información de tarjetas. Olivia no puede confirmar reservas ni consultar disponibilidad en tiempo real; para ello, use Cloudbeds o contacte al hotel. Si desea consultar la información de sus conversaciones o pedir su eliminación, escriba a ${email}.`,
-   `Using Olivia is optional. The chat asks for your acceptance before sending a message. Your questions and conversation history are processed using artificial intelligence and stored on the Olivia platform in a dedicated BUSINESS SUITES SG workspace to answer your enquiries. Requests may also include technical information, such as your IP address, to protect the service. Do not share passwords, sensitive information or card details. Olivia cannot confirm bookings or check real-time availability; please use Cloudbeds or contact the hotel. To enquire about your conversation information or request its deletion, email ${email}.`
+   `Using Olivia is optional. The chat asks for your acceptance before sending a message. Your questions and conversation history are processed using artificial intelligence and stored on the Olivia platform in a dedicated BUSINESS SUITES SG workspace to answer your enquiries. Requests may also include technical information, such as your IP address, to protect the service. Do not share passwords, sensitive information or card details. Olivia cannot confirm bookings or check real-time availability; please use Cloudbeds or contact the hotel. To enquire about your conversation information or request its deletion, email ${email}.`,
+   `是否使用 Olivia 由您自行决定。发送消息前，聊天工具会征求您的同意。您的问题和对话记录将通过人工智能进行处理，并存储在 Olivia 平台中 BUSINESS SUITES SG 的专用空间内，以便回复您的咨询。为保护服务安全，请求还可能包含 IP 地址等技术信息。请勿分享密码、敏感信息或银行卡资料。Olivia 无法确认预订或查询实时房态；请使用 Cloudbeds 或直接联系酒店。如需查询您的对话信息或申请删除，请发送邮件至 ${email}。`
   )]
  },
  {
-  title: t('Comunicación de datos', 'Sharing information'),
+  title: t('Comunicación de datos', 'Sharing information', '信息共享'),
   paragraphs: [t(
    'Podemos facilitar información a proveedores que trabajen por cuenta del hotel cuando sea necesaria para el servicio solicitado, así como a las autoridades en cumplimiento de una obligación legal. Si una transferencia a terceros requiere su consentimiento, lo solicitaremos previamente. Visitar el sitio no equivale a autorizar de manera general las transferencias opcionales.',
-   'We may provide information to suppliers acting on the hotel’s behalf when needed for the service requested, and to authorities when required by law. If a transfer to a third party requires your consent, we will ask for it beforehand. Visiting this website does not provide blanket permission for optional transfers.'
+   'We may provide information to suppliers acting on the hotel’s behalf when needed for the service requested, and to authorities when required by law. If a transfer to a third party requires your consent, we will ask for it beforehand. Visiting this website does not provide blanket permission for optional transfers.',
+   '为提供您所申请的服务，我们可能在必要时向代表酒店提供服务的供应商共享信息，也可能为履行法定义务向有关主管机关提供信息。如果向第三方传输信息需要您的同意，我们会事先征求。浏览本网站不代表您对所有可选的信息传输作出概括授权。'
   )]
  },
  {
-  title: t('Navegación y cookies', 'Browsing and cookies'),
+  title: t('Navegación y cookies', 'Browsing and cookies', '网站浏览与 Cookie'),
   paragraphs: [t(
    'Utilizamos Google Analytics para conocer las visitas y el uso de las páginas; este servicio puede emplear cookies de analítica. El sitio no incluye formularios de registro ni herramientas publicitarias. El proveedor de alojamiento puede tratar la dirección IP y los registros técnicos de acceso para entregar y proteger las páginas. El chat utiliza una cookie de sesión para vincular la conversación con su visitante. Cloudbeds y los sitios externos pueden usar cookies propias. Puede consultar sus avisos y administrar las cookies mediante las opciones de su navegador.',
-   'We use Google Analytics to understand visits and how pages are used; this service may use analytics cookies. The website has no registration forms or advertising tools. The hosting provider may process IP addresses and technical access logs to deliver and protect the pages. The chat uses a session cookie to associate a conversation with its visitor. Cloudbeds and external websites may use their own cookies. Please review their notices and manage cookies through your browser settings.'
+   'We use Google Analytics to understand visits and how pages are used; this service may use analytics cookies. The website has no registration forms or advertising tools. The hosting provider may process IP addresses and technical access logs to deliver and protect the pages. The chat uses a session cookie to associate a conversation with its visitor. Cloudbeds and external websites may use their own cookies. Please review their notices and manage cookies through your browser settings.',
+   '我们使用 Google Analytics 了解访问量及网页的使用情况；该服务可能使用分析类 Cookie。本网站不设注册表单或广告工具。托管服务提供商可能处理 IP 地址和技术访问日志，以提供网页并保护网站安全。聊天工具使用会话 Cookie 将对话与访问者关联。Cloudbeds 及外部网站可能使用其各自的 Cookie。请阅读相应隐私声明，并通过浏览器设置管理 Cookie。'
   )]
  },
  {
-  title: t('Conservación y protección', 'Retention and protection'),
+  title: t('Conservación y protección', 'Retention and protection', '信息保存与保护'),
   paragraphs: [t(
    'La información se conserva durante el tiempo necesario para la relación de hospedaje y para cumplir los plazos legales que correspondan. Cuando deje de ser necesaria, se bloqueará o eliminará según proceda. Su tratamiento se realiza con acceso restringido y medidas de seguridad adecuadas. No solicitamos datos de tarjetas por el correo de contacto.',
-   'Information is retained for as long as needed for the accommodation relationship and applicable legal retention periods. Once it is no longer needed, it will be blocked or deleted as appropriate. Processing uses restricted access and appropriate security measures. We do not request card details through the contact email address.'
+   'Information is retained for as long as needed for the accommodation relationship and applicable legal retention periods. Once it is no longer needed, it will be blocked or deleted as appropriate. Processing uses restricted access and appropriate security measures. We do not request card details through the contact email address.',
+   '我们会在维系住宿服务关系所需的期限内，以及适用法律要求的保存期限内保留信息。不再需要的信息将按规定予以封存或删除。信息处理采取访问限制和适当的安全措施。我们不会通过联系邮箱索取银行卡资料。'
   )]
  },
  {
-  title: t('Derechos ARCO y revocación', 'ARCO rights and withdrawal of consent'),
+  title: t('Derechos ARCO y revocación', 'ARCO rights and withdrawal of consent', 'ARCO 权利与撤回同意'),
   paragraphs: [t(
    `Para ejercer sus derechos de acceso, rectificación, cancelación u oposición (ARCO), retirar su consentimiento o limitar el uso o divulgación de sus datos, envíe un correo a ${email} con el asunto «Privacidad / ARCO». Incluya su nombre, un medio de respuesta, la petición concreta y la información que ayude a localizar sus datos o reserva. Le indicaremos cómo acreditar su identidad o representación. Si pide una rectificación, detalle la corrección y adjunte la documentación que la sustente.`,
-   `To exercise your rights of access, rectification, cancellation or objection (ARCO), withdraw your consent or limit the use or disclosure of your information, email ${email} with the subject “Privacidad / ARCO”. Include your name, a way to receive our response, your specific request and information that helps locate your data or booking. We will explain how to verify your identity or authority to act on someone’s behalf. For a correction, describe the change and provide supporting documentation.`
+   `To exercise your rights of access, rectification, cancellation or objection (ARCO), withdraw your consent or limit the use or disclosure of your information, email ${email} with the subject “Privacidad / ARCO”. Include your name, a way to receive our response, your specific request and information that helps locate your data or booking. We will explain how to verify your identity or authority to act on someone’s behalf. For a correction, describe the change and provide supporting documentation.`,
+   `如需行使访问、更正、取消或反对处理个人信息的权利（ARCO），撤回同意，或限制信息的使用或披露，请发送邮件至 ${email}，主题注明“Privacidad / ARCO”（隐私 / ARCO）。请提供姓名、接收答复的联系方式、具体请求，以及有助于查找您的信息或预订的资料。我们会说明如何核实您的身份或代理权限。如申请更正，请说明需要修改的内容并提供证明文件。`
   ), t(
    'Responderemos por el medio señalado y, cuando corresponda, el acceso podrá proporcionarse mediante una copia electrónica. La decisión se comunicará en un máximo de 20 días hábiles; si la solicitud resulta procedente, se hará efectiva en los 15 días hábiles posteriores a la respuesta. Cada plazo podrá ampliarse una sola vez por un periodo igual cuando exista una justificación legal. Retirar el consentimiento no tiene efectos retroactivos; algunas obligaciones legales pueden exigir que determinados datos se conserven.',
-   'We will respond through the contact method you specify and, where appropriate, provide access by electronic copy. We will communicate our decision within 20 business days and, if the request is granted, carry it out within 15 business days after that response. Each period may be extended once by an equal period where legally justified. Withdrawal of consent has no retroactive effect; legal obligations may require some information to be retained.'
+   'We will respond through the contact method you specify and, where appropriate, provide access by electronic copy. We will communicate our decision within 20 business days and, if the request is granted, carry it out within 15 business days after that response. Each period may be extended once by an equal period where legally justified. Withdrawal of consent has no retroactive effect; legal obligations may require some information to be retained.',
+   '我们将通过您指定的方式回复，并在适用时以电子副本形式提供信息访问。我们会在最多 20 个工作日内告知处理决定；请求获准后，将在答复后的 15 个工作日内予以执行。在法律允许且有正当理由的情况下，上述期限均可延长一次，延长期限与原期限相同。撤回同意不具有追溯效力；部分法定义务可能要求继续保存某些信息。'
   )]
  },
  {
-  title: t('Actualizaciones y legislación', 'Updates and applicable law'),
+  title: t('Actualizaciones y legislación', 'Updates and applicable law', '声明更新与适用法律'),
   paragraphs: [t(
    'Este aviso se sujeta a la Ley Federal de Protección de Datos Personales en Posesión de los Particulares vigente en México. Publicaremos los cambios en esta misma página e indicaremos la fecha de actualización. Cuando una modificación requiera renovar su consentimiento, lo recabaremos antes de realizar el tratamiento correspondiente.',
-   'This notice is governed by Mexico’s current Federal Law on the Protection of Personal Data Held by Private Parties. Changes will be published on this page with an updated date. Where a change requires renewed consent, we will obtain it before carrying out the relevant processing.'
+   'This notice is governed by Mexico’s current Federal Law on the Protection of Personal Data Held by Private Parties. Changes will be published on this page with an updated date. Where a change requires renewed consent, we will obtain it before carrying out the relevant processing.',
+   '本声明适用墨西哥现行《私人持有个人数据保护联邦法》（Ley Federal de Protección de Datos Personales en Posesión de los Particulares）。如有变更，我们将在本页面发布并注明更新日期。如果变更需要重新征得您的同意，我们会在开展相关处理前取得同意。'
   )]
  }
 ];
 ---
 <!doctype html>
-<html lang={lang}>
+<html lang={zh ? 'zh-Hans' : lang}>
  <head>
   <meta charset="UTF-8" />
   <GoogleAnalytics />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#402c31" />
   <meta name="robots" content="noindex, nofollow" />
-  <title>{t('Aviso de privacidad', 'Privacy notice')} · Business Suites SG</title>
-  <meta name="description" content={t('Conoce cómo BUSINESS SUITES SG trata tus datos personales y cómo ejercer tus derechos de privacidad.', 'Learn how BUSINESS SUITES SG processes your personal information and how to exercise your privacy rights.')} />
+  <title>{t('Aviso de privacidad', 'Privacy notice', '隐私声明')} · Business Suites SG</title>
+  <meta name="description" content={t('Conoce cómo BUSINESS SUITES SG trata tus datos personales y cómo ejercer tus derechos de privacidad.', 'Learn how BUSINESS SUITES SG processes your personal information and how to exercise your privacy rights.', '了解 BUSINESS SUITES SG 如何处理您的个人信息，以及如何行使您的隐私权利。')} />
+  {languages.map(language => <link rel="alternate" hreflang={language.htmlLang} href={language.href} />)}
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
  </head>
  <body class="privacy-page">
-  <a class="skip-link" href="#main">{t('Ir al contenido', 'Skip to content')}</a>
+  <a class="skip-link" href="#main">{t('Ir al contenido', 'Skip to content', '跳至正文')}</a>
   <header class="site-header privacy-header">
-   <a class="brand" href={home} aria-label={t('Business Suites SG — Inicio', 'Business Suites SG — Home')}><span class="monogram">SG<span class="monogram-dot">.</span></span><span class="brand-name">BUSINESS SUITES<span>CIUDAD DE MÉXICO</span></span></a>
-   <nav class="desktop-nav" aria-label={t('Navegación principal', 'Main navigation')}><a href={home}>{t('Volver al inicio', 'Back to home')} ↗</a></nav>
+   <a class="brand" href={home} aria-label={t('Business Suites SG — Inicio', 'Business Suites SG — Home', 'Business Suites SG — 酒店首页')}><span class="monogram">SG<span class="monogram-dot">.</span></span><span class="brand-name">BUSINESS SUITES<span>CIUDAD DE MÉXICO</span></span></a>
+   <nav class="desktop-nav" aria-label={t('Navegación principal', 'Main navigation', '主导航')}><a href={home}>{t('Volver al inicio', 'Back to home', '返回酒店首页')} ↗</a></nav>
    <div class="header-actions">
-    <a class="language" href={en ? '/privacy-policy/' : '/en/privacy-policy/'} aria-label={en ? 'Cambiar a español' : 'Switch to English'}>{en ? 'ES' : 'EN'}</a>
-    <a class="header-book" href={`${home}#reservar`}>{t('Reservar', 'Book your stay')}<span>↗</span></a>
+    <nav class="privacy-languages" aria-label={t('Idioma del aviso', 'Notice language', '隐私声明语言')}>
+     {languages.map(language => <a class="language" href={language.href} lang={language.htmlLang} hreflang={language.htmlLang} aria-label={language.name} aria-current={lang === language.code ? 'page' : undefined}>{language.label}</a>)}
+    </nav>
+    <a class="header-book" href={`${home}#reservar`}>{t('Reservar', 'Book your stay', '预订住宿')}<span>↗</span></a>
    </div>
   </header>
   <main id="main" class="privacy-main" tabindex="-1">
    <div class="privacy-intro">
     <span class="eyebrow">BUSINESS SUITES SG</span>
-    <h1>{t('Aviso de', 'Privacy')} <em>{t('privacidad', 'notice')}</em></h1>
-    <p class="privacy-updated">{t('Última actualización:', 'Last updated:')} <time datetime="2026-11-14">{t('14 de noviembre de 2026', 'November 14, 2026')}</time></p>
+    <h1>{t('Aviso de', 'Privacy', '隐私')} <em>{t('privacidad', 'notice', '声明')}</em></h1>
+    <p class="privacy-updated">{t('Última actualización:', 'Last updated:', '最后更新：')} <time datetime="2026-11-14">{t('14 de noviembre de 2026', 'November 14, 2026', '2026年11月14日')}</time></p>
    </div>
-   <article class="privacy-content" aria-label={t('Aviso de privacidad de BUSINESS SUITES SG', 'BUSINESS SUITES SG privacy notice')}>
+   <article class="privacy-content" aria-label={t('Aviso de privacidad de BUSINESS SUITES SG', 'BUSINESS SUITES SG privacy notice', 'BUSINESS SUITES SG 隐私声明')}>
     {sections.map((section, index) => <section aria-labelledby={`privacy-${index}`}>
      <h2 id={`privacy-${index}`}>{section.title}</h2>
      {section.paragraphs.map(paragraph => <p>{paragraph.split(email).map((part, i) => <>{i > 0 && <a href={`mailto:${email}`}>{email}</a>}{part}</>)}</p>)}
     </section>)}
-    <a class="text-link privacy-home" href={home}>{t('Volver al inicio', 'Back to home')} <span>↗</span></a>
+    <a class="text-link privacy-home" href={home}>{t('Volver al inicio', 'Back to home', '返回酒店首页')} <span>↗</span></a>
    </article>
   </main>
   <Footer lang={lang} />

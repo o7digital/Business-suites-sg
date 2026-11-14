@@ -3,6 +3,24 @@
   border-bottom-color: #ffffff26;
 }
 
+.privacy-languages { display: flex; align-items: center; gap: 14px; }
+.privacy-languages a { padding: 8px 0; }
+.privacy-languages a[aria-current="page"] { color: var(--gold); border-bottom: 1px solid currentColor; }
+
+html[lang="zh-Hans"] .privacy-page {
+  font-family: var(--sans), "PingFang SC", "Microsoft YaHei", sans-serif;
+  line-break: strict;
+}
+
+html[lang="zh-Hans"] .privacy-intro h1,
+html[lang="zh-Hans"] .privacy-content h2 {
+  font-family: "Songti SC", "Noto Serif CJK SC", "SimSun", serif;
+  letter-spacing: .02em;
+  line-height: 1.4;
+}
+
+html[lang="zh-Hans"] .privacy-intro h1 em { font-style: normal; }
+
 .privacy-main {
   width: min(100% - 12%, 920px);
   margin: 0 auto;
@@ -51,6 +69,7 @@
   .privacy-content section { margin-top: 32px; }
   .privacy-header .header-actions { gap: 15px; }
   .privacy-header .header-book { padding: 10px 12px; gap: 12px; }
+  .privacy-languages { gap: 12px; }
 }
 
 @media (max-width: 360px) {

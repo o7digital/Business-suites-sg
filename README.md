@@ -47,7 +47,7 @@ Cloudbeds opened successfully in Firefox during delivery checks. A test handoff 
 
 ## Privacy notice
 
-The Spanish notice is at `/privacy-policy/`, with an English version at `/en/privacy-policy/`. Both are linked from the shared footer and Olivia's consent text. Adapted from https://www.businesssuiteskepler.com/privacy-policy/ for BUSINESS SUITES SG, Río Nazas 138 and `contacto@businesssuitessg.com`, updated November 14, 2026. It covers accommodation enquiries, Cloudbeds, Olivia, Google Analytics, session cookies and ARCO requests. The footer uses the same contact email; this change does not provision an email mailbox.
+The notice is available in Spanish at `/privacy-policy/`, English at `/en/privacy-policy/` and Simplified Chinese at `/zh/privacy-policy/`. Each notice has a three-language selector and a localized footer; the hotel footer and Olivia's consent text link to the matching Spanish or English notice. The Chinese notice returns to the English hotel homepage. All three versions contain the same 12 sections, adapted from https://www.businesssuiteskepler.com/privacy-policy/ for BUSINESS SUITES SG, Río Nazas 138 and `contacto@businesssuitessg.com`, updated November 14, 2026. They cover accommodation enquiries, Cloudbeds, Olivia, Google Analytics, session cookies and ARCO requests. The footer uses the same contact email; this change does not provision an email mailbox.
 
 ## Content and imagery
 
