@@ -55,6 +55,14 @@ The new `/zh/` homepage translates the full hotel copy, suite descriptions and f
 
 `npm test` includes eight calendar/proxy checks and six Olivia gateway checks. Calendar checks cover month/year transitions, chronological ordering, complete translations, local images, published-only feeds, fixed-source requests, invalid data and HTML/link safety.
 
+## Contact form
+
+The desktop and mobile menus place Contacto / Contact / 联系我们 after Eventos, linking to `#contacto` on all three homepages. The form posts directly to the supplied endpoint `https://formspree.io/f/xppdqgep`, with name, email, optional phone, message, consent, language and the notification subject. The named `email` field supplies Formspree's reply-to address. A `_gotcha` honeypot follows Formspree's documented spam-filtering convention.
+
+The native POST action works without JavaScript. JavaScript adds native field validation, whitespace checks, duplicate-submission prevention, a pending state and localized feedback. A success message and reset occur only after a successful JSON response with `ok: true`; validation, rate-limit, network, timeout and unconfirmed responses preserve the entries for correction or retry. The three privacy notices describe the Formspree contact flow.
+
+Firefox verification covered all three languages at 1440, 1366, 1341, 1340, 1024, 768, 390 and 320 px, menu order, section-preserving language links, required fields and consent, the exact POST payload, duplicate prevention, success/reset and six failure modes. Submission responses were intercepted during testing: no test message was sent to the hotel. Formspree account activation, recipient configuration and actual email receipt have not been verified from this repository.
+
 ## Privacy notice
 
 The notice is available in Spanish at `/privacy-policy/`, English at `/en/privacy-policy/` and Simplified Chinese at `/zh/privacy-policy/`. Each notice has a three-language selector and a localized footer; the hotel footer and Olivia's consent text link to the matching language notice. The Chinese notice returns to the Chinese hotel homepage. All three versions contain the same 12 sections, adapted from https://www.businesssuiteskepler.com/privacy-policy/ for BUSINESS SUITES SG, Río Nazas 138 and `contacto@businesssuitessg.com`, updated November 14, 2026. They cover accommodation enquiries, Cloudbeds, Olivia, Google Analytics, session cookies and ARCO requests. The footer uses the same contact email; this change does not provision an email mailbox.

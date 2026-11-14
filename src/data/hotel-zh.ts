@@ -24,6 +24,7 @@ const copy: Record<string, string> = {
   'The neighbourhood': '周边街区',
   'Gallery': '相册',
   'Events': '活动',
+  'Contact': '联系我们',
   'Book your stay': '预订住宿',
   'Open menu': '打开菜单',
   'Website language': '网站语言',

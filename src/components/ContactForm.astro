@@ -1,0 +1,40 @@
+---
+import '../styles/contact.css';
+import { contactCopy, type ContactLanguage } from '../data/contact';
+import { privacyPath } from '../data/olivia';
+interface Props { lang: ContactLanguage; }
+const { lang } = Astro.props;
+const copy = contactCopy[lang];
+---
+<section id="contacto" class="contact-section section-space" aria-labelledby="contact-title">
+ <div class="section-kicker"><span>{copy.label}</span><span class="line"></span><span>BUSINESS SUITES SG</span></div>
+ <div class="contact-layout">
+  <div class="contact-intro">
+   <h2 id="contact-title">{copy.title}<br/><em>{copy.titleEmphasis}</em></h2>
+   <p>{copy.introduction}</p>
+   <div class="contact-details">
+    <div><span class="eyebrow">{copy.address}</span><p>Río Nazas 138, Col. Cuauhtémoc<br/>06500, {lang === 'zh' ? '墨西哥城' : lang === 'en' ? 'Mexico City' : 'Ciudad de México'}</p></div>
+    <div><span class="eyebrow">{copy.contact}</span><a href="mailto:contacto@businesssuitessg.com">contacto@businesssuitessg.com</a><a href="tel:+525536668535">+52 55 3666 8535</a></div>
+   </div>
+  </div>
+  <form class="contact-form" data-contact-form data-language={lang} action="https://formspree.io/f/xppdqgep" method="POST" aria-describedby="contact-required contact-note contact-status">
+   <input type="hidden" name="subject" value="Business Suites SG — Formulario de contacto" />
+   <input type="hidden" name="language" value={lang} />
+   <div class="contact-honeypot" aria-hidden="true"><input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-label="Leave empty" /></div>
+   <p id="contact-required" class="contact-required">{copy.requiredNote}</p>
+   <fieldset data-contact-fields>
+    <div class="contact-field"><label for="contact-name">{copy.name}</label><input id="contact-name" name="name" type="text" autocomplete="name" maxlength="120" required /></div>
+    <div class="contact-field"><label for="contact-email">{copy.email}</label><input id="contact-email" name="email" type="email" autocomplete="email" maxlength="254" required /></div>
+    <div class="contact-field contact-field--wide"><label for="contact-phone">{copy.phone}</label><input id="contact-phone" name="phone" type="tel" autocomplete="tel" maxlength="40" /></div>
+    <div class="contact-field contact-field--wide"><label for="contact-message">{copy.message}</label><textarea id="contact-message" name="message" rows="6" maxlength="5000" placeholder={copy.placeholder} required></textarea></div>
+    <label class="contact-consent"><input type="checkbox" name="consent" value="accepted" required /><span>{copy.consentBefore}<a href={privacyPath(lang)} target="_blank" rel="noopener noreferrer">{copy.privacy}</a>{copy.consentAfter}</span></label>
+    <button class="solid-button contact-submit" type="submit" data-contact-submit><span data-contact-submit-label>{copy.send}</span><span aria-hidden="true">↗</span></button>
+   </fieldset>
+   <p id="contact-status" class="contact-status" data-contact-status role="status" aria-live="polite" aria-atomic="true" tabindex="-1"></p>
+   <p id="contact-note" class="contact-note">{copy.note}</p>
+  </form>
+ </div>
+</section>
+<script>
+ import '../scripts/contact';
+</script>
