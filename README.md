@@ -83,3 +83,5 @@ vercel deploy --prod --scope olivier-steineur
 ```
 
 Local Vercel linkage and environment files are ignored by Git.
+
+Olivia 3.6 replies follow the actual visitor message language regardless of the page locale. Explicit language requests take priority, and neutral follow-ups retain the most recent substantive visitor language. Local English/Spanish greetings also follow the greeting text. The shared response-language policy is appended after the hotel instructions without changing hotel knowledge, isolation or booking behavior.

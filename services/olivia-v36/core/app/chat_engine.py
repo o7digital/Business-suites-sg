@@ -1,5 +1,6 @@
 import os
 from pathlib import Path
+from .language_policy import apply_response_language_policy
 import time
 
 import httpx
@@ -26,7 +27,7 @@ MODELS = {
 
 def _site_instructions(default):
     path = os.getenv("CHAT_SYSTEM_INSTRUCTIONS_FILE")
-    return Path(path).read_text() if path else default
+    return apply_response_language_policy(Path(path).read_text() if path else default)
 
 
 def _context_block(context):

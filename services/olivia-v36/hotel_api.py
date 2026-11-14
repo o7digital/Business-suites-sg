@@ -91,7 +91,7 @@ def reserve(body):
 
 @app.get("/health")
 def health():
-    return {"status": "ok", "version": "3.6.0", "site": TENANT, "knowledge_documents": len(json.loads(knowledge_path.read_text())), "provider_configured": bool(os.getenv("OPENAI_API_KEY"))}
+    return {"status": "ok", "version": "3.6.0", "site": TENANT, "knowledge_documents": len(json.loads(knowledge_path.read_text())), "provider_configured": bool(os.getenv("OPENAI_API_KEY")), "response_language_policy": "visitor-message"}
 
 
 @app.post("/chat")
@@ -111,13 +111,14 @@ def chat(body: ChatIn, authorization: str | None = Header(None)):
                 raise HTTPException(404, "Conversation not found")
             history = list(db.scalars(select(Message).where(Message.tenant_id == TENANT, Message.conversation_id == body.conversation_id).order_by(Message.id.desc()).limit(12)))[::-1]
             if re.fullmatch(r"\s*(hola|hello|hi|buenos días|buenas tardes|buenas noches)[!,. ]*", body.message, re.I):
-                reply = "Hello! I'm Olivia, the AI concierge for Business Suites SG. How can I help with your stay?" if body.language == "en" else "¡Hola! Soy Olivia, la concierge de IA de Business Suites SG. ¿En qué puedo ayudarte con tu estancia?"
+                english_greeting = bool(re.fullmatch(r"\s*(hello|hi)[!,. ]*", body.message, re.I))
+                reply = "Hello! I'm Olivia, the AI concierge for Business Suites SG. How can I help with your stay?" if english_greeting else "¡Hola! Soy Olivia, la concierge de IA de Business Suites SG. ¿En qué puedo ayudarte con tu estancia?"
                 engine = "greeting"
             else:
                 context = store.search(db, TENANT, provider.embed([body.message])[0], body.message, 6, 0.15)
                 if any(hit.tenant_id != TENANT for hit in context):
                     raise HTTPException(502, "Invalid hotel context")
-                prompt = f"Preferred language: {body.language}; follow the visitor's language if explicitly requested.\nHotel guest question: {body.message}"
+                prompt = f"Interface locale (fallback only): {body.language}. Answer in the actual visitor message language; honor explicit language requests and keep the most recent substantive visitor language for neutral follow-ups.\nHotel guest question: {body.message}"
                 reply, model, _, _ = generate("BALANCED", prompt, history, context, tenant=TENANT)
                 engine = "local" if model.startswith("local:") else "openai"
             if not conversation:

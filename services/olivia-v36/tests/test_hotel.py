@@ -48,6 +48,8 @@ def test_greeting_is_explicitly_a_local_greeting(client):
     assert reply['engine'] == 'greeting'
     assert reply['clientCode'] == 'business-suites-sg'
     assert 'Business Suites SG' in reply['reply']
+    assert post(client,'Hello',language='es').json()['reply'].startswith('Hello!')
+    assert post(client,'Hola',language='en').json()['reply'].startswith('¡Hola!')
 
 
 def test_real_chat_core_uses_hotel_context_and_separate_histories(client, monkeypatch):
