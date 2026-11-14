@@ -63,9 +63,13 @@ The native POST action works without JavaScript. JavaScript adds native field va
 
 Firefox verification covered all three languages at 1440, 1366, 1341, 1340, 1024, 768, 390 and 320 px, menu order, section-preserving language links, required fields and consent, the exact POST payload, duplicate prevention, success/reset and six failure modes. Submission responses were intercepted during testing: no test message was sent to the hotel. Formspree account activation, recipient configuration and actual email receipt have not been verified from this repository.
 
+## Measurement tag
+
+All six hotel/privacy pages use the shared `GoogleAnalytics.astro` component to load the supplied Google Tag Manager container `GTM-5XBP7Q9H`, with the asynchronous `gtm.js` snippet and `dataLayer` / `gtag('js', new Date())` initialization. The earlier direct GA4 loader and measurement configuration have been removed. The three privacy notices describe measurement tags managed through Google Tag Manager.
+
 ## Privacy notice
 
-The notice is available in Spanish at `/privacy-policy/`, English at `/en/privacy-policy/` and Simplified Chinese at `/zh/privacy-policy/`. Each notice has a three-language selector and a localized footer; the hotel footer and Olivia's consent text link to the matching language notice. The Chinese notice returns to the Chinese hotel homepage. All three versions contain the same 12 sections, adapted from https://www.businesssuiteskepler.com/privacy-policy/ for BUSINESS SUITES SG, Río Nazas 138 and `contacto@businesssuitessg.com`, updated November 14, 2026. They cover accommodation enquiries, Cloudbeds, Olivia, Google Analytics, session cookies and ARCO requests. The footer uses the same contact email; this change does not provision an email mailbox.
+The notice is available in Spanish at `/privacy-policy/`, English at `/en/privacy-policy/` and Simplified Chinese at `/zh/privacy-policy/`. Each notice has a three-language selector and a localized footer; the hotel footer and Olivia's consent text link to the matching language notice. The Chinese notice returns to the Chinese hotel homepage. All three versions contain the same 12 sections, adapted from https://www.businesssuiteskepler.com/privacy-policy/ for BUSINESS SUITES SG, Río Nazas 138 and `contacto@businesssuitessg.com`, updated November 14, 2026. They cover accommodation enquiries, Cloudbeds, Olivia, Google Tag Manager, analytics cookies, session cookies and ARCO requests. The footer uses the same contact email; this change does not provision an email mailbox.
 
 ## Content and imagery
 
