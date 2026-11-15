@@ -73,7 +73,7 @@ for family in families:
         assert len(page.ids) == len(set(page.ids)), f'{route}: duplicate IDs'
         metadata = {meta.get('name', meta.get('property')): meta.get('content') for meta in page.elements('meta')}
         assert metadata['robots'] == ('index, follow' if args.production else 'noindex, follow'), route
-        assert metadata['description'] and metadata['og:title'] and metadata['og:image'].endswith('.webp'), route
+        assert metadata['description'] and metadata['og:title'] and urlsplit(metadata['og:image']).path.endswith('.webp'), route
         assert metadata['og:url'] == origin + route, route
         check_link(route, metadata['og:image'])
         links = page.elements('link')
@@ -91,10 +91,10 @@ for family in families:
                     check_link(route, reference)
             for reference in attrs.get('data-images', '').split('|'):
                 if reference:
-                    assert reference.endswith('.webp'), reference
+                    assert urlsplit(reference).path.endswith('.webp'), reference
                     check_link(route, reference)
         for image in page.elements('img'):
-            assert image['src'].endswith('.webp'), f'{route}: unoptimized image {image["src"]}'
+            assert urlsplit(image['src']).path.endswith('.webp'), f'{route}: unoptimized image {image["src"]}'
             assert int(image['width']) > 0 and int(image['height']) > 0, route
             assert 'alt' in image, route
             check_link(route, image['src'])
