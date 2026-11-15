@@ -8,7 +8,7 @@ import xml.etree.ElementTree as ET
 
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument('--directory', default='.vercel/output/static')
-parser.add_argument('--production', action='store_true', help='Expect an indexable main production build')
+parser.add_argument('--production', action='store_true', help='Expect an indexable production build')
 args = parser.parse_args()
 root = Path(args.directory)
 origin = 'https://www.businesssuitessg.com'

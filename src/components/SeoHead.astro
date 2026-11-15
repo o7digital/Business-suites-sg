@@ -12,7 +12,7 @@ interface Props {
 const { lang, page, title, description, structuredData } = Astro.props;
 const canonical = absoluteUrl(pagePaths[page][lang]);
 const image = absoluteUrl((await fullHotelPhoto('negra-bedroom.jpg')).src);
-const robots = robotsPolicy(process.env.VERCEL_ENV, process.env.VERCEL_GIT_COMMIT_REF);
+const robots = robotsPolicy(process.env.VERCEL_ENV);
 const json = structuredData ? JSON.stringify(structuredData).replace(/</g, '\\u003c') : undefined;
 ---
 <meta name="robots" content={robots} />

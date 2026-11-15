@@ -85,7 +85,7 @@ The `dev` branch contains the current `main` and the published location-copy cor
 
 The hotel, privacy and location pages share canonical URLs on `https://www.businesssuitessg.com`, reciprocal `es` / `en` / `zh-Hans` / `x-default` alternates, localized titles and descriptions, Open Graph and Twitter metadata. Hotel and location pages publish a `LodgingBusiness` schema using the verified address, coordinates, contact details, six suites and check-in/out times; no prices, reviews or star ratings are invented.
 
-Indexing is environment-dependent: Vercel production builds outside `dev` emit `index, follow`; preview, local and `dev` builds emit `noindex, follow`. Vercel also protects preview deployments with its own indexing headers. Production SEO changes take effect only after this work is merged and deployed there.
+Indexing depends only on the deployment environment: `VERCEL_ENV=production` emits `index, follow`, regardless of the source branch. Preview, local and unknown environments emit `noindex, follow`. Vercel also protects preview deployments with its own indexing headers. A release needs a fresh production build; do not assign production domains directly to an unchanged preview build.
 
 The nine canonical pages are listed in `/sitemap.xml`, including reciprocal language alternates. `/robots.txt` allows public content and excludes `/api/` from crawling. Submission to Search Console is separate from publishing these files and has not been performed.
 
@@ -99,14 +99,16 @@ npm run build
 python3 scripts/verify-seo.py
 ```
 
-To validate the future main production indexing behavior locally:
+To validate production indexing locally, including a production build from `dev`:
 
 ```sh
-VERCEL_ENV=production VERCEL_GIT_COMMIT_REF=main npm run build
+VERCEL_ENV=production VERCEL_GIT_COMMIT_REF=dev npm run build
 python3 scripts/verify-seo.py --production
 ```
 
 The rendered-output check covers all nine pages, canonical and language URLs, schema, the 25 keyword links per page, local link targets, WebP images and responsive variants, sitemap and robots.txt.
+
+The November 15, 2026 indexing fix removes the old branch restriction, which incorrectly kept production releases from `dev` in `noindex`. Regression checks build the actual nine pages with a production environment and `dev` source branch, then rebuild in preview mode to verify that preview pages remain excluded.
 
 Validated on November 14, 2026: 17 Node tests; rendered-output checks for production and preview indexing; Firefox at actual viewports of 1440, 768, 390 and 320 px on all nine pages. Suite tabs, twelve room-gallery photos, hero controls, mobile navigation and section-preserving language switches passed without JavaScript page errors. Full-width WebP counterparts of the twelve unique hotel photos referenced in the homepage HTML total 1,165,344 bytes, compared with 3,666,286 bytes for the source JPEGs (68.2% less); responsive variants are also emitted. The tall mobile hero deliberately selects sufficient source resolution for its cover crop.
 
@@ -135,7 +137,7 @@ The browser calls same-origin session/chat endpoints. An HttpOnly, signed, expir
 
 The launcher's indicator and header status are green when the SG Olivia 3.6 service is ready, and orange when unavailable or the browser is offline. `/api/olivia/status` probes only the fixed SG health endpoint, checks the tenant, engine version and provider configuration, and returns a minimal public readiness result without creating a visitor session or conversation. It is refreshed every minute while the page is visible, when reopening after 30 seconds, and on reconnection. Chat/network failures turn the indicator orange; a successful reply or readiness check restores green. Status text is localized in ES/EN/中文. The indicator describes the AI service, not hotel room availability.
 
-The gateway passes eight Node tests; the complete website suite has 19 tests. The existing isolated backend suite has six tests. Firefox checks cover the hotel and privacy routes at desktop, tablet, mobile and landscape sizes, including consent gating, quick questions, language switching, expired-session recovery, safe reply rendering and rate/network error recovery. The floating card was also checked on all nine hotel/location/privacy pages at 1440 and 390 px, and at 320 px, tablet and landscape sizes. Firefox checks covered green/orange states, offline/reconnection, consent, safe reply rendering, failed-message recovery, language changes, draft preservation, Escape and reduced motion. The service image and changed source files have a dedicated rollback backup under `/opt/o7/backups/business-suites-sg-olivia36/`.
+The gateway passes eight Node tests; the complete website suite has 20 tests. The existing isolated backend suite has six tests. Firefox checks cover the hotel and privacy routes at desktop, tablet, mobile and landscape sizes, including consent gating, quick questions, language switching, expired-session recovery, safe reply rendering and rate/network error recovery. The floating card was also checked on all nine hotel/location/privacy pages at 1440 and 390 px, and at 320 px, tablet and landscape sizes. Firefox checks covered green/orange states, offline/reconnection, consent, safe reply rendering, failed-message recovery, language changes, draft preservation, Escape and reduced motion. The service image and changed source files have a dedicated rollback backup under `/opt/o7/backups/business-suites-sg-olivia36/`.
 
 Run `npm run knowledge` after reviewing a hotel-information change. The service deliberately refuses silently replacing an existing knowledge revision: deploy an explicit scoped KB migration when changing that corpus. Secrets and database data are excluded from Git. The VPS service has a graceful dedicated nginx prefix, `/business-suites-sg/`, and a saved pre-change proxy configuration under `/opt/o7/backups/business-suites-sg-olivia36/`.
 

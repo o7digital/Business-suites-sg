@@ -3,13 +3,21 @@ import assert from 'node:assert/strict';
 import { robotsPolicy, pagePaths, languages, absoluteUrl, hotelSchema } from '../src/data/seo.ts';
 import { areas } from '../src/data/location.ts';
 
-test('development and preview builds stay out of search, while main production can be indexed', () => {
-  assert.equal(robotsPolicy(), 'noindex, follow');
-  assert.equal(robotsPolicy('development', 'dev'), 'noindex, follow');
-  assert.equal(robotsPolicy('preview', 'main'), 'noindex, follow');
-  assert.equal(robotsPolicy('preview', 'dev'), 'noindex, follow');
-  assert.equal(robotsPolicy('production', 'dev'), 'noindex, follow');
-  assert.equal(robotsPolicy('production', 'main'), 'index, follow');
+test('local, preview and unknown deployment environments stay out of search', () => {
+  for (const environment of [undefined, '', 'development', 'preview', 'staging']) {
+    assert.equal(robotsPolicy(environment), 'noindex, follow');
+  }
+});
+
+test('production is indexable even when Vercel builds from dev', () => {
+  const previousBranch = process.env.VERCEL_GIT_COMMIT_REF;
+  try {
+    process.env.VERCEL_GIT_COMMIT_REF = 'dev';
+    assert.equal(robotsPolicy('production'), 'index, follow');
+  } finally {
+    if (previousBranch === undefined) delete process.env.VERCEL_GIT_COMMIT_REF;
+    else process.env.VERCEL_GIT_COMMIT_REF = previousBranch;
+  }
 });
 
 test('each language has 25 distinct local searches and complete content for their target areas', () => {

@@ -12,9 +12,10 @@ export const pagePaths: Record<PageKind, Record<Language, string>> = {
 export const absoluteUrl = (path: string) => new URL(path, `${siteUrl}/`).href;
 export const mapsUrl = 'https://maps.app.goo.gl/xLqonEeihBtLZRte7';
 
-// Preview builds must stay out of search, including an accidental production build of dev.
-export function robotsPolicy(environment?: string, branch?: string): string {
-  return environment === 'production' && branch !== 'dev' ? 'index, follow' : 'noindex, follow';
+// A production release is indexable regardless of its source branch.
+// Preview, local and unknown deployment environments stay out of search.
+export function robotsPolicy(environment?: string): string {
+  return environment === 'production' ? 'index, follow' : 'noindex, follow';
 }
 
 export const homeSeo = {
