@@ -1,4 +1,8 @@
 ---
+import { areas } from '../data/location';
+import { pagePaths, type Language } from '../data/seo';
+import '../styles/seo.css';
+interface Props { lang?: Language; photoCredits?: boolean; }
 const { lang = 'es', photoCredits = false } = Astro.props;
 const en = lang === 'en';
 const zh = lang === 'zh';
@@ -11,6 +15,12 @@ const t = (es: string, english: string, chinese: string) => zh ? chinese : en ? 
   <div class="footer-contact"><a href="tel:+525536668535">+52 55 3666 8535</a><a href="mailto:contacto@businesssuitessg.com">contacto@businesssuitessg.com</a></div>
   <a href="#main" class="back-top" aria-label={t('Volver arriba', 'Back to top', '返回顶部')}>↑</a>
  </div>
+ <section class="footer-areas" aria-labelledby="footer-areas-title">
+  <h2 id="footer-areas-title">{t('Alojamiento y alrededores', 'Accommodation and surroundings', '住宿与周边')}</h2>
+  <div class="footer-area-grid">
+   {areas.map(area => <div><h3>{area.title[lang]}</h3><ul>{area.keywords[lang].map(keyword => <li><a href={`${pagePaths.location[lang]}#${area.id}`}>{keyword}</a></li>)}</ul></div>)}
+  </div>
+ </section>
  <div class="footer-bottom">
   <span>© {new Date().getFullYear()} Business Suites SG</span>
   <a href={zh ? '/zh/privacy-policy/' : en ? '/en/privacy-policy/' : '/privacy-policy/'}>{t('Aviso de privacidad', 'Privacy notice', '隐私声明')}</a>

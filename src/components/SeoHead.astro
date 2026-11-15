@@ -1,0 +1,34 @@
+---
+import { absoluteUrl, pagePaths, languages, htmlLanguage, robotsPolicy, type Language, type PageKind } from '../data/seo';
+import { fullHotelPhoto } from '../lib/hotel-images';
+
+interface Props {
+  lang: Language;
+  page: PageKind;
+  title: string;
+  description: string;
+  structuredData?: Record<string, unknown>;
+}
+const { lang, page, title, description, structuredData } = Astro.props;
+const canonical = absoluteUrl(pagePaths[page][lang]);
+const image = absoluteUrl((await fullHotelPhoto('negra-bedroom.jpg')).src);
+const robots = robotsPolicy(process.env.VERCEL_ENV, process.env.VERCEL_GIT_COMMIT_REF);
+const json = structuredData ? JSON.stringify(structuredData).replace(/</g, '\\u003c') : undefined;
+---
+<meta name="robots" content={robots} />
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonical} />
+{languages.map(language => <link rel="alternate" hreflang={htmlLanguage[language]} href={absoluteUrl(pagePaths[page][language])} />)}
+<link rel="alternate" hreflang="x-default" href={absoluteUrl(pagePaths[page].es)} />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Business Suites SG" />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonical} />
+<meta property="og:image" content={image} />
+<meta property="og:image:alt" content={lang === 'zh' ? 'Business Suites SG Negra套房' : 'Suite Negra · Business Suites SG'} />
+<meta property="og:locale" content={{ es: 'es_MX', en: 'en_US', zh: 'zh_CN' }[lang]} />
+{languages.filter(language => language !== lang).map(language => <meta property="og:locale:alternate" content={{ es: 'es_MX', en: 'en_US', zh: 'zh_CN' }[language]} />)}
+<meta name="twitter:card" content="summary_large_image" />
+{json && <script is:inline type="application/ld+json" set:html={json} />}

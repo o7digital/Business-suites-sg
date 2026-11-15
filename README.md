@@ -19,12 +19,16 @@ npm run dev
 npm run build
 ```
 
-The three hotel pages are prerendered. The Vercel adapter additionally builds the server-only `/api/events-calendar`, `/api/olivia/session` and `/api/olivia/chat` routes in `.vercel/output/`. The hotel pages work without an AI credential; Olivia requires the server-only `OLIVIA_GATEWAY_KEY` environment variable. `npm run dev` serves the local preview.
+The three hotel pages, three location guides and three privacy notices are prerendered. The Vercel adapter additionally builds the server-only `/api/events-calendar`, `/api/olivia/session` and `/api/olivia/chat` routes in `.vercel/output/`. The hotel pages work without an AI credential; Olivia requires the server-only `OLIVIA_GATEWAY_KEY` environment variable. `npm run dev` serves the local preview.
 
 ## Files
 
 - `src/components/Hotel.astro`: page structure and trilingual hotel copy
 - `src/data/rooms.ts`: six suites and their verified characteristics
+- `src/data/seo.ts`: canonical domain, language routes, localized metadata and hotel schema
+- `src/data/location.ts`: five local area guides and exactly 25 search phrases per language
+- `src/components/HotelImage.astro`: responsive WebP through Astro assets
+- `src/assets/hotel/`: original hotel photos and panorama used by the image pipeline
 - `src/styles/global.css`: responsive visual design
 - `src/styles/header.css`: fixed header and uppercase navigation
 - `src/styles/readability.css`: readable body text, stronger contrast and responsive spacing
@@ -65,7 +69,7 @@ Firefox verification covered all three languages at 1440, 1366, 1341, 1340, 1024
 
 ## Measurement tag
 
-All six hotel/privacy pages use the shared `GoogleAnalytics.astro` component to load the supplied Google Tag Manager container `GTM-5XBP7Q9H`, with the asynchronous `gtm.js` snippet and `dataLayer` / `gtag('js', new Date())` initialization. The earlier direct GA4 loader and measurement configuration have been removed. The three privacy notices describe measurement tags managed through Google Tag Manager.
+All nine hotel/location/privacy pages use the shared `GoogleAnalytics.astro` component to load the supplied Google Tag Manager container `GTM-5XBP7Q9H`, with the asynchronous `gtm.js` snippet and `dataLayer` / `gtag('js', new Date())` initialization. The earlier direct GA4 loader and measurement configuration have been removed. The three privacy notices describe measurement tags managed through Google Tag Manager.
 
 ## Privacy notice
 
@@ -73,9 +77,38 @@ The notice is available in Spanish at `/privacy-policy/`, English at `/en/privac
 
 ## Content and imagery
 
-Hotel images are the actual Business Suites SG photos from the supplied Cloudbeds listing. No synthetic room photography is used. The Reforma panorama is a destination image, not a hotel view. It is by Mario Yaír TS, CC BY-SA 4.0; attribution and original source link are included in the photo-credits dialog.
+Hotel images are the actual Business Suites SG photos from the supplied Cloudbeds listing. Originals live in `src/assets/hotel/`; Astro generates WebP at widths up to the source size with `srcset`, `sizes` and intrinsic dimensions. The hero prioritizes the first image, and below-the-fold photos are lazy loaded. Gallery dialogs also load generated WebP. Source attribution is recorded in `src/data/image-sources.json`. No synthetic room photography is used. The Reforma panorama is a destination image, not a hotel view. It is by Mario Yaír TS, CC BY-SA 4.0; attribution and original source link are included in the photo-credits dialog.
 
-The concept has `noindex, nofollow` intentionally. Review before a production hotel launch.
+## SEO work on dev
+
+The `dev` branch contains the current `main` and the published location-copy correction. Development is deployed with the Vercel CLI as a **preview**, without promoting it to the production domain.
+
+The hotel, privacy and location pages share canonical URLs on `https://www.businesssuitessg.com`, reciprocal `es` / `en` / `zh-Hans` / `x-default` alternates, localized titles and descriptions, Open Graph and Twitter metadata. Hotel and location pages publish a `LodgingBusiness` schema using the verified address, coordinates, contact details, six suites and check-in/out times; no prices, reviews or star ratings are invented.
+
+Indexing is environment-dependent: Vercel production builds outside `dev` emit `index, follow`; preview, local and `dev` builds emit `noindex, follow`. Vercel also protects preview deployments with its own indexing headers. Production SEO changes take effect only after this work is merged and deployed there.
+
+The nine canonical pages are listed in `/sitemap.xml`, including reciprocal language alternates. `/robots.txt` allows public content and excludes `/api/` from crawling. Submission to Search Console is separate from publishing these files and has not been performed.
+
+The location guides are `/ubicacion/`, `/en/location/` and `/zh/location/`. They cover Colonia Cuauhtémoc, Río Nazas 138, Paseo de la Reforma, the Angel of Independence, and the Mexican Stock Exchange / Zona Rosa. Exactly 25 distinct search phrases per language appear as footer links to the relevant guide section. Geographic wording places the property on Río Nazas in Colonia Cuauhtémoc and describes nearby landmarks without inventing walking times. The phrases are editorial targets, not measured search volumes.
+
+Validate the rendered pages after building:
+
+```sh
+npm test
+npm run build
+python3 scripts/verify-seo.py
+```
+
+To validate the future main production indexing behavior locally:
+
+```sh
+VERCEL_ENV=production VERCEL_GIT_COMMIT_REF=main npm run build
+python3 scripts/verify-seo.py --production
+```
+
+The rendered-output check covers all nine pages, canonical and language URLs, schema, the 25 keyword links per page, local link targets, WebP images and responsive variants, sitemap and robots.txt.
+
+Validated on November 14, 2026: 17 Node tests; rendered-output checks for production and preview indexing; Firefox at actual viewports of 1440, 768, 390 and 320 px on all nine pages. Suite tabs, twelve room-gallery photos, hero controls, mobile navigation and section-preserving language switches passed without JavaScript page errors. Full-width WebP counterparts of the twelve unique hotel photos referenced in the homepage HTML total 1,165,344 bytes, compared with 3,666,286 bytes for the source JPEGs (68.2% less); responsive variants are also emitted. The tall mobile hero deliberately selects sufficient source resolution for its cover crop.
 
 ## Validation
 
@@ -96,7 +129,7 @@ The readability revision uses 16 px for primary paragraphs, 14 px for most contr
 
 Olivia runs in the dedicated `business-suites-sg-olivia36` service on VPS1, with its own PostgreSQL volume, gateway credential and eight approved hotel documents. The existing Olivia 3.6 RAG/chat core is retained under `services/olivia-v36/core/` with upstream repository/revision metadata. Suites Mine and Vialterna business profiles are not used for hotel replies.
 
-The shared widget appears on all three hotel homepages and all three privacy pages. Its floating launcher, four quick questions and consent-first composer follow the Kepler concierge flow, using SG's colours and hotel information. Visitors can switch the chat interface between Spanish, English and Simplified Chinese without changing pages. The engine follows the actual visitor message language, including explicit language requests and conversation follow-ups; the interface language is a fallback. The existing deployed visitor-language policy is retained in the repository.
+The shared widget appears on all three hotel homepages, three location guides and three privacy pages. Its floating launcher, four quick questions and consent-first composer follow the Kepler concierge flow, using SG's colours and hotel information. Visitors can switch the chat interface between Spanish, English and Simplified Chinese without changing pages. The engine follows the actual visitor message language, including explicit language requests and conversation follow-ups; the interface language is a fallback. The existing deployed visitor-language policy is retained in the repository.
 
 The browser calls same-origin session/chat endpoints. An HttpOnly, signed, expiring cookie binds each conversation to its visitor; tenant, engine URL and upstream headers are fixed server-side. No AI provider key or gateway credential is included in browser assets. Chat requires consent before sending/storing messages. Requests have size, concurrency and rate limits. Replies use text nodes and HTTPS links, and failures preserve the question for retry. Direct contact opens `contacto@businesssuitessg.com` or the hotel phone; the engine's instructions use this current email in preference to older source records. Booking links open SG's Cloudbeds engine; Olivia has no live inventory or booking/payment capability.
 
@@ -106,7 +139,15 @@ Run `npm run knowledge` after reviewing a hotel-information change. The service 
 
 ## Deployment
 
-The repository is linked to the Vercel project `olivier-steineur/business-suites-sg`. `vercel.json` specifies Astro, `npm ci` and `npm run build`; the adapter handles static/function output. `.nvmrc`, `package.json` and the Vercel project use Node 22. `OLIVIA_GATEWAY_KEY` is stored as an encrypted production/preview variable in Vercel. The Astro `site` value is the deployed Vercel URL. The intentional `noindex, nofollow` remains enabled for this preview.
+The repository is linked to the Vercel project `olivier-steineur/business-suites-sg`. `vercel.json` specifies Astro, `npm ci` and `npm run build`; the adapter handles static/function output. `.nvmrc`, `package.json` and the Vercel project use Node 22. `OLIVIA_GATEWAY_KEY` is stored as an encrypted production/preview variable in Vercel. The Astro `site` value is the public canonical domain, `https://www.businesssuitessg.com`. Preview builds retain `noindex, follow`; the production indexing policy is described above.
+
+For work on `dev`, deploy a preview:
+
+```sh
+vercel deploy --scope olivier-steineur
+```
+
+After a separately requested merge/release to production:
 
 ```sh
 vercel deploy --prod --scope olivier-steineur

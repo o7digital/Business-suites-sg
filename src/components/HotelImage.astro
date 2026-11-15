@@ -1,0 +1,15 @@
+---
+import { Image } from 'astro:assets';
+import type { HTMLAttributes } from 'astro/types';
+import { hotelPhoto } from '../lib/hotel-images';
+
+interface Props extends Omit<HTMLAttributes<'img'>, 'src' | 'srcset' | 'width' | 'height'> {
+  filename: string;
+  alt: string;
+  sizes: string;
+}
+const { filename, alt, sizes, loading = 'lazy', ...attributes } = Astro.props;
+const source = hotelPhoto(filename);
+const widths = [...new Set([480, 768, 1024, 1440, 1920, source.width].filter(width => width <= source.width))].sort((a, b) => a - b);
+---
+<Image src={source} alt={alt} widths={widths} sizes={sizes} format="webp" quality={82} loading={loading} decoding="async" {...attributes} />

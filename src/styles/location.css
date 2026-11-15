@@ -1,0 +1,34 @@
+.location-header { background: var(--burgundy); }
+.location-page main { padding-top: 103px; }
+.location-hero, .location-stay { display: grid; grid-template-columns: 1fr 1fr; gap: 65px; align-items: center; padding: 70px 7.5%; }
+.location-hero h1 { font-size: clamp(40px, 4.5vw, 70px); letter-spacing: -1.5px; margin: 24px 0; }
+.location-hero h1 em, .location-stay h2 em { color: #756251; }
+.location-hero p:not(.eyebrow), .location-stay p { color: var(--muted); margin: 24px 0; line-height: 1.8; }
+.location-hero > img { height: 440px; }
+.location-guide { display: grid; grid-template-columns: .8fr 1.5fr; gap: 80px; padding: 70px 7.5%; background: var(--paper); }
+.location-guide aside h2 { font-size: 34px; letter-spacing: -.5px; }
+.location-guide address { margin: 24px 0; font-style: normal; color: var(--muted); }
+.location-guide aside nav { display: grid; gap: 16px; }
+.location-guide aside nav a { display: flex; justify-content: space-between; gap: 16px; font-size: 14px; border-bottom: 1px solid var(--line); padding-bottom: 12px; }
+.location-articles > section { padding-bottom: 40px; margin-bottom: 40px; border-bottom: 1px solid var(--line); scroll-margin-top: 130px; }
+.location-articles > section:last-child { margin-bottom: 0; }
+.location-articles h2 { font-size: 38px; letter-spacing: -.5px; line-height: 1.15; }
+.location-articles p { margin-top: 22px; color: var(--muted); line-height: 1.9; }
+.location-articles .text-link { margin-top: 22px; }
+.location-stay > img { height: 390px; }
+.location-stay h2 { font-size: clamp(40px, 4.5vw, 65px); margin-top: 20px; }
+@media (max-width: 1100px) { .location-header .header-actions { gap: 18px; } }
+@media (max-width: 850px) {
+ .location-hero, .location-stay, .location-guide { grid-template-columns: 1fr; gap: 40px; padding: 50px 7.5%; }
+ .location-hero > img { height: 340px; }
+ .location-hero h1 { font-size: clamp(40px, 7vw, 58px); }
+}
+@media (max-width: 600px) {
+ .location-header .header-actions { gap: 12px; }
+ .location-header .hotel-languages { gap: 8px; }
+ .location-header .header-book { padding: 8px 10px; gap: 8px; }
+ .location-hero h1 { font-size: 39px; }
+ .location-hero > img, .location-stay > img { height: 290px; }
+ .location-articles h2 { font-size: 32px; }
+}
+@media (max-width: 360px) { .location-header .brand-name { display: none; } .location-hero h1 { font-size: 35px; } }

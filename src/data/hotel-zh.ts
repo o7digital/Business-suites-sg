@@ -1,5 +1,9 @@
 // Hotel copy in Simplified Chinese. Room names and official addresses stay unchanged.
 const copy: Record<string, string> = {
+  'Your suite near': '您的自在套房，近享',
+  'Reforma.': '改革大道。',
+  'With a kitchen, in Colonia Cuauhtémoc. Río Nazas 138, Mexico City.': '配备厨房，位于Cuauhtémoc街区。墨西哥城Río Nazas 138号。',
+  'Location and surroundings': '位置与周边',
   'The arrival': '抵达时刻',
   'The little rituals': '生活的小仪式',
   'A space with character': '独具个性的空间',

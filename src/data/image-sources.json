@@ -1,6 +1,6 @@
 [
   {
-    "path": "/images/negra-bedroom.jpg",
+    "path": "src/assets/hotel/negra-bedroom.jpg",
     "source": "https://h-img3.cloudbeds.com/uploads/320247/recamara_balcon_negra~~699fc766795bc.jpg",
     "room": "S1 Negra (grande)",
     "dimensions": [
@@ -9,7 +9,7 @@
     ]
   },
   {
-    "path": "/images/negra-kitchen.jpg",
+    "path": "src/assets/hotel/negra-kitchen.jpg",
     "source": "https://h-img2.cloudbeds.com/uploads/320247/cocina_negra~~699fc79357c64.jpg",
     "room": "S1 Negra (grande)",
     "dimensions": [
@@ -18,7 +18,7 @@
     ]
   },
   {
-    "path": "/images/negra-living.jpg",
+    "path": "src/assets/hotel/negra-living.jpg",
     "source": "https://h-img3.cloudbeds.com/uploads/320247/dsc_0179~~699fc7d4e6321.jpg",
     "room": "S1 Negra (grande)",
     "dimensions": [
@@ -27,7 +27,7 @@
     ]
   },
   {
-    "path": "/images/negra-bedroom-wide.jpg",
+    "path": "src/assets/hotel/negra-bedroom-wide.jpg",
     "source": "https://h-img1.cloudbeds.com/uploads/320247/dsc_0156~~699fc95ddbc5d.jpg",
     "room": "S1 Negra (grande)",
     "dimensions": [
@@ -36,7 +36,7 @@
     ]
   },
   {
-    "path": "/images/corridor.jpg",
+    "path": "src/assets/hotel/corridor.jpg",
     "source": "https://h-img3.cloudbeds.com/uploads/320247/dsc_0119~~699fc9d062b31.jpg",
     "room": "S1 Negra (grande)",
     "dimensions": [
@@ -45,7 +45,7 @@
     ]
   },
   {
-    "path": "/images/facade.jpg",
+    "path": "src/assets/hotel/facade.jpg",
     "source": "https://h-img1.cloudbeds.com/uploads/320247/fachada_vertical~~699fd0a52a95c.jpg",
     "room": "S4 Naranja (grande)",
     "dimensions": [
@@ -54,7 +54,7 @@
     ]
   },
   {
-    "path": "/images/courtyard-balcony.jpg",
+    "path": "src/assets/hotel/courtyard-balcony.jpg",
     "source": "https://h-img2.cloudbeds.com/uploads/320247/balcon_interior~~699fcc38109b8.jpg",
     "room": "S2 Morada (pequeña)",
     "dimensions": [
@@ -63,7 +63,7 @@
     ]
   },
   {
-    "path": "/images/morada-living.jpg",
+    "path": "src/assets/hotel/morada-living.jpg",
     "source": "https://h-img3.cloudbeds.com/uploads/320247/foto_portada_s2_morada~~699fcb9e03d82.jpg",
     "room": "S2 Morada (pequeña)",
     "dimensions": [
@@ -72,7 +72,7 @@
     ]
   },
   {
-    "path": "/images/morada-bedroom.jpg",
+    "path": "src/assets/hotel/morada-bedroom.jpg",
     "source": "https://h-img1.cloudbeds.com/uploads/320247/recmara_con_closet_s2_morada~~699fcbc17f1fb.jpg",
     "room": "S2 Morada (pequeña)",
     "dimensions": [
@@ -81,7 +81,7 @@
     ]
   },
   {
-    "path": "/images/beige-living.jpg",
+    "path": "src/assets/hotel/beige-living.jpg",
     "source": "https://h-img1.cloudbeds.com/uploads/320247/comedor_sala_y_cocina_s3_beige~~699fcdd1dcce0.jpg",
     "room": "S3 Beige (mediana)",
     "dimensions": [
@@ -90,7 +90,7 @@
     ]
   },
   {
-    "path": "/images/beige-bedroom.jpg",
+    "path": "src/assets/hotel/beige-bedroom.jpg",
     "source": "https://h-img1.cloudbeds.com/uploads/320247/recmara_grande_s3_beige~~699fcec808cbb.jpg",
     "room": "S3 Beige (mediana)",
     "dimensions": [
@@ -99,7 +99,7 @@
     ]
   },
   {
-    "path": "/images/beige-kitchen.jpg",
+    "path": "src/assets/hotel/beige-kitchen.jpg",
     "source": "https://h-img1.cloudbeds.com/uploads/320247/dsc_0077~~699fcf0c32c45.jpg",
     "room": "S3 Beige (mediana)",
     "dimensions": [
@@ -108,7 +108,7 @@
     ]
   },
   {
-    "path": "/images/naranja-living.jpg",
+    "path": "src/assets/hotel/naranja-living.jpg",
     "source": "https://h-img3.cloudbeds.com/uploads/320247/sala_naranja~~699fd0c34fd98.jpg",
     "room": "S4 Naranja (grande)",
     "dimensions": [
@@ -117,7 +117,7 @@
     ]
   },
   {
-    "path": "/images/naranja-kitchen.jpg",
+    "path": "src/assets/hotel/naranja-kitchen.jpg",
     "source": "https://h-img3.cloudbeds.com/uploads/320247/dsc_0247~~699fd06dae408.jpg",
     "room": "S4 Naranja (grande)",
     "dimensions": [
@@ -126,7 +126,7 @@
     ]
   },
   {
-    "path": "/images/naranja-bedroom.jpg",
+    "path": "src/assets/hotel/naranja-bedroom.jpg",
     "source": "https://h-img3.cloudbeds.com/uploads/320247/escritorio_naranja~~699fd08c2a7e6.jpg",
     "room": "S4 Naranja (grande)",
     "dimensions": [
@@ -135,7 +135,7 @@
     ]
   },
   {
-    "path": "/images/azul-living.jpg",
+    "path": "src/assets/hotel/azul-living.jpg",
     "source": "https://h-img1.cloudbeds.com/uploads/320247/sala_s5_azul~~699fd382c3811.jpg",
     "room": "S5 Azul (pequeña)",
     "dimensions": [
@@ -144,7 +144,7 @@
     ]
   },
   {
-    "path": "/images/azul-bedroom.jpg",
+    "path": "src/assets/hotel/azul-bedroom.jpg",
     "source": "https://h-img2.cloudbeds.com/uploads/320247/recmara_s5_azul~~699fd36977489.jpg",
     "room": "S5 Azul (pequeña)",
     "dimensions": [
@@ -153,7 +153,7 @@
     ]
   },
   {
-    "path": "/images/roja-living.jpg",
+    "path": "src/assets/hotel/roja-living.jpg",
     "source": "https://h-img1.cloudbeds.com/uploads/320247/comedor_cocina_y_muro_decorado_s6_roja~~699fd48a17973.jpg",
     "room": "S6 Roja (mediana)",
     "dimensions": [
@@ -162,7 +162,7 @@
     ]
   },
   {
-    "path": "/images/roja-bedroom.jpg",
+    "path": "src/assets/hotel/roja-bedroom.jpg",
     "source": "https://h-img3.cloudbeds.com/uploads/320247/recmara_grande_con_ventana_s6_roja~~699fd49e98ee3.jpg",
     "room": "S6 Roja (mediana)",
     "dimensions": [
@@ -171,7 +171,7 @@
     ]
   },
   {
-    "path": "/images/roja-kitchen.jpg",
+    "path": "src/assets/hotel/roja-kitchen.jpg",
     "source": "https://h-img2.cloudbeds.com/uploads/320247/dsc_0030~~699fd4d91986d.jpg",
     "room": "S6 Roja (mediana)",
     "dimensions": [
@@ -180,7 +180,7 @@
     ]
   },
   {
-    "path": "/images/property-main.jpg",
+    "path": "src/assets/hotel/property-main.jpg",
     "source": "https://h-img3.cloudbeds.com/uploads/320247/dsc_0093_gallery~~699fe104de406.jpg",
     "room": "Property",
     "dimensions": [
@@ -189,7 +189,7 @@
     ]
   },
   {
-    "path": "/images/reforma-panorama.jpg",
+    "path": "src/assets/hotel/reforma-panorama.jpg",
     "source": "https://commons.wikimedia.org/wiki/File:Atardecer_en_el_Paseo_de_la_Reforma_en_Ciudad_de_M%C3%A9xico_2.jpg",
     "image_url": "https://upload.wikimedia.org/wikipedia/commons/5/53/Atardecer_en_el_Paseo_de_la_Reforma_en_Ciudad_de_M%C3%A9xico_2.jpg",
     "author": "Mario Yaír TS",

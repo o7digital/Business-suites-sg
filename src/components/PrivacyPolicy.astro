@@ -7,6 +7,9 @@ import '../styles/privacy.css';
 import GoogleAnalytics from './GoogleAnalytics.astro';
 import Footer from './Footer.astro';
 import Olivia from './Olivia.astro';
+import SeoHead from './SeoHead.astro';
+import type { Language } from '../data/seo';
+interface Props { lang?: Language; }
 
 const { lang = 'es' } = Astro.props;
 const en = lang === 'en';
@@ -133,10 +136,10 @@ const sections = [
   <GoogleAnalytics />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#402c31" />
-  <meta name="robots" content="noindex, nofollow" />
-  <title>{t('Aviso de privacidad', 'Privacy notice', '隐私声明')} · Business Suites SG</title>
-  <meta name="description" content={t('Conoce cómo BUSINESS SUITES SG trata tus datos personales y cómo ejercer tus derechos de privacidad.', 'Learn how BUSINESS SUITES SG processes your personal information and how to exercise your privacy rights.', '了解 BUSINESS SUITES SG 如何处理您的个人信息，以及如何行使您的隐私权利。')} />
-  {languages.map(language => <link rel="alternate" hreflang={language.htmlLang} href={language.href} />)}
+  <SeoHead lang={lang} page="privacy"
+   title={`${t('Aviso de privacidad', 'Privacy notice', '隐私声明')} · Business Suites SG`}
+   description={t('Conoce cómo BUSINESS SUITES SG trata tus datos personales y cómo ejercer tus derechos de privacidad.', 'Learn how BUSINESS SUITES SG processes your personal information and how to exercise your privacy rights.', '了解 BUSINESS SUITES SG 如何处理您的个人信息，以及如何行使您的隐私权利。')}
+  />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
  </head>
  <body class="privacy-page">

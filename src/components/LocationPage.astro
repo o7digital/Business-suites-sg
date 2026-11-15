@@ -1,0 +1,80 @@
+---
+import '../styles/fonts.css';
+import '../styles/global.css';
+import '../styles/header.css';
+import '../styles/readability.css';
+import '../styles/chinese.css';
+import '../styles/location.css';
+import { areas, locationSeo } from '../data/location';
+import { pagePaths, languages, htmlLanguage, mapsUrl, hotelSchema, type Language } from '../data/seo';
+import { fullHotelPhoto } from '../lib/hotel-images';
+import HotelImage from './HotelImage.astro';
+import SeoHead from './SeoHead.astro';
+import GoogleAnalytics from './GoogleAnalytics.astro';
+import Footer from './Footer.astro';
+import Olivia from './Olivia.astro';
+
+interface Props { lang: Language; }
+const { lang } = Astro.props;
+const t = (es: string, en: string, zh: string) => ({ es, en, zh })[lang];
+const home = pagePaths.home[lang];
+const photo = await fullHotelPhoto('negra-bedroom.jpg');
+---
+<!doctype html>
+<html lang={htmlLanguage[lang]}>
+ <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#402c31" />
+  <GoogleAnalytics />
+  <SeoHead lang={lang} page="location" {...locationSeo[lang]} structuredData={hotelSchema(lang, photo.src)} />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+ </head>
+ <body class="location-page">
+  <a class="skip-link" href="#main">{t('Ir al contenido', 'Skip to content', '跳至正文')}</a>
+  <header class="site-header location-header">
+   <a class="brand" href={home} aria-label={t('Business Suites SG — Inicio', 'Business Suites SG — Home', 'Business Suites SG — 酒店首页')}><span class="monogram">SG<span class="monogram-dot">.</span></span><span class="brand-name">BUSINESS SUITES<span>{t('CIUDAD DE MÉXICO', 'MEXICO CITY', '墨西哥城')}</span></span></a>
+   <nav class="desktop-nav" aria-label={t('Navegación principal', 'Main navigation', '主导航')}><a href={home}>{t('Volver al inicio', 'Back to home', '返回酒店首页')} ↗</a></nav>
+   <div class="header-actions">
+    <nav class="hotel-languages" aria-label={t('Idioma del sitio', 'Website language', '网站语言')}>
+     {languages.map(language => <a class="language" href={pagePaths.location[language]} data-location-language lang={htmlLanguage[language]} aria-label={{ es: 'Español', en: 'English', zh: '简体中文' }[language]} aria-current={lang === language ? 'page' : undefined}>{{ es: 'ES', en: 'EN', zh: '中文' }[language]}</a>)}
+    </nav>
+    <a class="header-book" href={`${home}#reservar`}>{t('Reservar', 'Book your stay', '预订住宿')}<span>↗</span></a>
+   </div>
+  </header>
+  <main id="main" tabindex="-1">
+   <section class="location-hero">
+    <div>
+     <p class="eyebrow">RÍO NAZAS 138 · CUAUHTÉMOC · CDMX</p>
+     <h1>{t('En Cuauhtémoc,', 'In Cuauhtémoc,', '自在Cuauhtémoc，')}<br/><em>{t('cerca de Reforma.', 'near Reforma.', '近享改革大道。')}</em></h1>
+     <p>{t('Suites con cocina y espacio propio para descubrir Ciudad de México a tu ritmo. Encuentra nuestra dirección y organiza tus recorridos por la zona.', 'Suites with kitchens and your own space to discover Mexico City at your pace. Find our address and plan your outings in the area.', '带厨房的套房与专属空间，让您按自己的节奏探索墨西哥城。了解酒店位置，规划周边行程。')}</p>
+     <a class="text-link" href={mapsUrl} target="_blank" rel="noopener">{t('Cómo llegar', 'Get directions', '查看路线')}<span>↗</span></a>
+    </div>
+    <HotelImage filename="property-main.jpg" alt={t('Entrada de Business Suites SG en Río Nazas 138', 'Business Suites SG entrance at Río Nazas 138', 'Business Suites SG位于Río Nazas 138号的入口')} sizes="(max-width: 850px) 85vw, 40vw" loading="eager" fetchpriority="high" />
+   </section>
+   <section class="location-guide" aria-labelledby="location-guide-title">
+    <aside>
+     <h2 id="location-guide-title">{t('Ubicación y alrededores', 'Location and surroundings', '位置与周边')}</h2>
+     <address>Río Nazas 138<br/>Colonia Cuauhtémoc<br/>06500, {t('Ciudad de México', 'Mexico City', '墨西哥城')}</address>
+     <nav aria-label={t('Explorar la zona', 'Explore the area', '探索周边')}>{areas.map(area => <a href={`#${area.id}`}>{area.title[lang]} <span aria-hidden="true">↗</span></a>)}</nav>
+    </aside>
+    <div class="location-articles">
+     {areas.map(area => <section id={area.id} aria-labelledby={`${area.id}-title`}>
+      <h2 id={`${area.id}-title`}>{area.title[lang]}</h2>
+      <p>{area.text[lang]}</p>
+      {area.id === 'alrededores' && <a class="text-link" href="https://www.bmv.com.mx/es/Grupo_BMV/Contacto" target="_blank" rel="noopener">{t('Consultar la dirección oficial de la BMV', 'Check the official stock exchange address', '查看证券交易所官方地址')}<span>↗</span></a>}
+     </section>)}
+    </div>
+   </section>
+   <section class="location-stay">
+    <HotelImage filename="negra-kitchen.jpg" alt={t('Cocina equipada de la suite Negra', 'Equipped kitchen in Suite Negra', 'Negra套房配备齐全的厨房')} sizes="(max-width: 850px) 85vw, 40vw" />
+    <div><span class="eyebrow">BUSINESS SUITES SG</span><h2>{t('Tu espacio,', 'Your space,', '您的空间，')}<br/><em>{t('a tu ritmo.', 'at your pace.', '您的节奏。')}</em></h2><p>{t('Seis suites diferentes, todas con cocina y cama queen. Consulta las características de cada una y elige la que mejor acompañe tu estancia.', 'Six individual suites, each with a kitchen and queen bed. Explore their features and choose the one that suits your stay.', '六间各具个性的套房，均配备厨房和大床。了解每间套房的特点，选择适合您的自在居所。')}</p><a class="text-link" href={`${home}#suites`}>{t('Explorar las suites', 'Explore the suites', '探索套房')}<span>↗</span></a></div>
+   </section>
+  </main>
+  <Footer lang={lang} />
+  <Olivia lang={lang} />
+  <script>
+   document.querySelectorAll<HTMLAnchorElement>('[data-location-language]').forEach(link => link.addEventListener('click', () => { link.hash = location.hash; }));
+  </script>
+ </body>
+</html>
