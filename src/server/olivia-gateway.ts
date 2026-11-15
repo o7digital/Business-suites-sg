@@ -23,6 +23,20 @@ export function createGateway(key: string, fetchUpstream: typeof fetch = fetch) 
     const origin = request.headers.get('origin');
     const ownOrigin = new URL(request.url).origin;
     if ((origin && origin !== ownOrigin) || request.headers.get('sec-fetch-site') === 'cross-site') return json({ error: 'Invalid origin' }, 403);
+    if (request.method === 'GET' && path === 'status') {
+      // Readiness only: no visitor session, conversation or message is created.
+      try {
+        const response = await fetchUpstream('https://olivia.o7digitalgroup.com/business-suites-sg/health', {
+          redirect: 'error', signal: AbortSignal.timeout(5000), headers: { Accept: 'application/json' },
+        });
+        if (!response.ok) throw new Error('unavailable');
+        const result = await response.json();
+        if (result.status !== 'ok' || result.site !== CLIENT || !/^3\.6\.\d+$/.test(result.version) || result.provider_configured !== true) throw new Error('unavailable');
+        return json({ available: true, clientCode: CLIENT, version: '3.6.0' });
+      } catch {
+        return json({ available: false, clientCode: CLIENT, version: '3.6.0' }, 503);
+      }
+    }
     const stored = cookies.get(COOKIE)?.value || '';
     const [id, expiry, signature] = stored.split('.');
     const valid = /^[a-f0-9]{32}$/.test(id || '') && /^\d+$/.test(expiry || '') && Number(expiry) > Date.now() && Number(expiry) <= Date.now() + 3600000 && equal(signature || '', sign(`session:${id}.${expiry}`));

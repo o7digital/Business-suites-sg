@@ -1,6 +1,7 @@
 export const oliviaCopy = {
   es: {
     name: 'Olivia IA', open: 'Abrir Olivia IA', close: 'Cerrar el chat', concierge: 'Concierge digital',
+    available: 'Disponible', away: 'Ausente', checking: 'Comprobando…',
     welcome: 'Hola, soy Olivia, tu concierge digital. Te ayudo a elegir tu suite en Business Suites SG y a planear tu estancia en Ciudad de México. ¿Qué te gustaría saber?',
     languages: 'Idioma del chat', message: 'Tu mensaje', placeholder: 'Escribe tu pregunta…', send: 'Enviar',
     consentBefore: 'He leído y acepto el ', privacy: 'Aviso de privacidad',
@@ -18,6 +19,7 @@ export const oliviaCopy = {
   },
   en: {
     name: 'Olivia AI', open: 'Open Olivia AI', close: 'Close chat', concierge: 'Digital concierge',
+    available: 'Available', away: 'Away', checking: 'Checking…',
     welcome: 'Hello, I’m Olivia, your digital concierge. I can help you choose your suite at Business Suites SG and plan your stay in Mexico City. What would you like to know?',
     languages: 'Chat language', message: 'Your message', placeholder: 'Ask your question…', send: 'Send',
     consentBefore: 'I have read and accept the ', privacy: 'Privacy notice',
@@ -35,6 +37,7 @@ export const oliviaCopy = {
   },
   zh: {
     name: 'Olivia AI', open: '打开 Olivia AI', close: '关闭聊天', concierge: '数字礼宾',
+    available: '在线', away: '暂时离线', checking: '检查中…',
     welcome: '您好，我是 Olivia，您的数字礼宾。我可以帮您了解 Business Suites SG 的套房，并规划您的墨西哥城之旅。您想了解什么？',
     languages: '聊天语言', message: '您的消息', placeholder: '请输入您的问题…', send: '发送',
     consentBefore: '我已阅读并同意', privacy: '隐私声明',

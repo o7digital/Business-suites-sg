@@ -16,6 +16,37 @@ let language: OliviaLanguage = root.dataset.language === 'zh' ? 'zh' : root.data
 const conversationId = crypto.randomUUID();
 let identity: string | null = null;
 let sending = false;
+let availability: 'checking' | 'available' | 'away' = 'checking';
+let checkingAvailability = false;
+let lastAvailabilityCheck = 0;
+
+function setAvailability(next: typeof availability) {
+  availability = next;
+  root.dataset.availability = next;
+  const copy = oliviaCopy[language];
+  root.querySelectorAll<HTMLElement>('[data-olivia-availability]').forEach(element => {
+    element.textContent = copy[next];
+  });
+}
+
+async function refreshAvailability() {
+  if (!navigator.onLine) { setAvailability('away'); return; }
+  if (checkingAvailability) return;
+  checkingAvailability = true;
+  lastAvailabilityCheck = Date.now();
+  try {
+    const response = await fetch('/api/olivia/status', { cache: 'no-store', signal: AbortSignal.timeout(8000) });
+    if (!response.ok) throw new Error('unavailable');
+    const result = await response.json();
+    setAvailability(navigator.onLine && result.available === true && result.clientCode === 'business-suites-sg' && result.version === '3.6.0' ? 'available' : 'away');
+  } catch { setAvailability('away'); }
+  finally { checkingAvailability = false; }
+}
+void refreshAvailability();
+window.addEventListener('offline', () => setAvailability('away'));
+window.addEventListener('online', () => { void refreshAvailability(); });
+window.setInterval(() => { if (!document.hidden) void refreshAvailability(); }, 60000);
+document.addEventListener('visibilitychange', () => { if (!document.hidden && Date.now() - lastAvailabilityCheck > 30000) void refreshAvailability(); });
 
 function updateControls() {
   input.disabled = !consent.checked || sending;
@@ -39,11 +70,12 @@ function setLanguage(next: OliviaLanguage) {
   query('.olivia-languages').setAttribute('aria-label', copy.languages);
   messages.setAttribute('aria-label', copy.name);
   languages.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.oliviaLanguage === language)));
-  actions.forEach((button, index) => { button.textContent = copy.actions[index].label; });
+  actions.forEach((button, index) => { button.querySelector('[data-olivia-action-label]')!.textContent = copy.actions[index].label; });
   query<HTMLAnchorElement>('[data-olivia-privacy]').href = privacyPath(language);
   query<HTMLAnchorElement>('[data-olivia-booking]').href = bookingUrl(language);
   input.placeholder = copy.placeholder;
   send.setAttribute('aria-label', copy.send);
+  setAvailability(availability);
   status.textContent = '';
 }
 languages.forEach(button => button.addEventListener('click', () => {
@@ -61,6 +93,7 @@ launcher.addEventListener('click', () => {
   if (!panel.hidden) { close(); return; }
   panel.hidden = false;
   launcher.setAttribute('aria-expanded', 'true');
+  if (Date.now() - lastAvailabilityCheck > 30000) void refreshAvailability();
   if (consent.checked && !sending) input.focus(); else consent.focus();
 });
 query<HTMLButtonElement>('[data-olivia-close]').addEventListener('click', close);
@@ -123,6 +156,15 @@ async function sendMessage(message: string) {
   append(message, true);
   input.value = '';
   const pending = append(oliviaCopy[language].typing);
+  pending.classList.add('olivia-message--pending');
+  const typingLabel = document.createElement('span');
+  typingLabel.textContent = oliviaCopy[language].typing;
+  pending.replaceChildren(typingLabel);
+  for (let i = 0; i < 3; i++) {
+    const dot = document.createElement('i');
+    dot.setAttribute('aria-hidden', 'true');
+    pending.append(dot);
+  }
   messages.setAttribute('aria-busy', 'true');
   try {
     const response = await ask(message);
@@ -130,11 +172,14 @@ async function sendMessage(message: string) {
     if (!response.ok) throw new Error('unavailable');
     const result = await response.json();
     if (result.clientCode !== 'business-suites-sg' || typeof result.reply !== 'string' || !result.reply.trim()) throw new Error('unavailable');
+    pending.classList.remove('olivia-message--pending');
     renderReply(pending, result.reply);
+    setAvailability(navigator.onLine ? 'available' : 'away');
   } catch (error) {
     pending.remove();
     input.value = message;
     status.textContent = error instanceof Error && error.message === 'rate' ? oliviaCopy[language].rate : oliviaCopy[language].error;
+    if (!(error instanceof Error && error.message === 'rate')) setAvailability('away');
   } finally {
     sending = false;
     messages.removeAttribute('aria-busy');

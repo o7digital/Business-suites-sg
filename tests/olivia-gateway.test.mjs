@@ -26,6 +26,42 @@ test('sessions remain stable, signed and scoped to this hotel', async () => {
   assert.ok(person.values.get(COOKIE));
 });
 
+test('availability checks the SG Olivia 3.6 engine without creating a visitor session', async () => {
+  const person = visitor();
+  const gateway = createGateway(key, async (url, options) => {
+    assert.equal(url, 'https://olivia.o7digitalgroup.com/business-suites-sg/health');
+    assert.equal(options.redirect, 'error');
+    assert.equal(options.headers.Accept, 'application/json');
+    assert.equal(options.body, undefined);
+    return Response.json({ status: 'ok', site: 'business-suites-sg', version: '3.6.0', provider_configured: true, internal: key });
+  });
+  const response = await gateway(context(person, 'status'));
+  assert.equal(response.status, 200);
+  assert.equal(response.headers.get('cache-control'), 'no-store');
+  assert.deepEqual(await response.json(), { available: true, clientCode: 'business-suites-sg', version: '3.6.0' });
+  assert.equal(person.values.size, 0);
+});
+
+test('unavailable, unconfigured, foreign or different-version engines never report available', async () => {
+  const healthy = { status: 'ok', site: 'business-suites-sg', version: '3.6.0', provider_configured: true };
+  for (const upstream of [
+    async () => new Response(key, { status: 503 }),
+    async () => { throw new Error(key); },
+    async () => Response.json({ ...healthy, status: 'error' }),
+    async () => Response.json({ ...healthy, site: 'another-hotel' }),
+    async () => Response.json({ ...healthy, version: '4.0.0' }),
+    async () => Response.json({ ...healthy, provider_configured: false }),
+    async () => new Response('invalid json'),
+  ]) {
+    const person = visitor();
+    const response = await createGateway(key, upstream)(context(person, 'status'));
+    assert.equal(response.status, 503);
+    assert.deepEqual(await response.json(), { available: false, clientCode: 'business-suites-sg', version: '3.6.0' });
+    assert.equal(person.values.size, 0);
+  }
+  assert.equal((await createGateway('')(context(visitor(), 'status'))).status, 503);
+});
+
 test('forged sessions, foreign origins and missing consent never reach the engine', async () => {
   let calls = 0;
   const gateway = createGateway(key, async () => { calls++; return reply(); });
